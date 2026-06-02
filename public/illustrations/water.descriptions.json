@@ -1,0 +1,24 @@
+{
+  "descriptions": [
+    {
+      "label": "Evaporation",
+      "description": "Evaporation is when liquid water heats up and turns into an invisible gas called water vapor, rising into the air. Think about how puddles disappear on a sunny day!"
+    },
+    {
+      "label": "Transpiration",
+      "description": "Transpiration is similar to evaporation, but it's specifically how plants release water vapor into the atmosphere through tiny pores on their leaves. It's like plants 'sweating' to cool themselves down and move nutrients!"
+    },
+    {
+      "label": "Condensation & Cloud Formation",
+      "description": "Condensation happens when water vapor in the air cools down and changes back into tiny liquid water droplets or ice crystals. These tiny droplets then gather together to form the clouds we see in the sky!"
+    },
+    {
+      "label": "Precipitation",
+      "description": "When those cloud droplets or ice crystals get too heavy, they fall back to Earth as precipitation, which can be rain, snow, sleet, or hail. This is how water returns from the sky to the land and oceans."
+    },
+    {
+      "label": "Run-off & Infiltration",
+      "description": "After precipitation, some water flows over the land surface, called run-off, heading towards rivers and lakes. Other water soaks into the ground, a process called infiltration, becoming groundwater that fills underground spaces."
+    }
+  ]
+}
