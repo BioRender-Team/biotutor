@@ -1,12 +1,10 @@
-import Anthropic from '@anthropic-ai/sdk'
+import { streamText } from 'ai'
 import type { IncomingMessage, ServerResponse } from 'http'
-
-const client = new Anthropic()
 
 const MAX_MESSAGES = 20
 const MAX_CONTENT_LENGTH = 8000
 
-function isValidMessages(val: unknown): val is Anthropic.MessageParam[] {
+function isValidMessages(val: unknown): val is Array<{ role: 'user' | 'assistant'; content: string }> {
   if (!Array.isArray(val) || val.length === 0 || val.length > MAX_MESSAGES) return false
   return val.every(
     (m) =>
@@ -53,16 +51,13 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
   res.setHeader('Content-Type', 'text/plain; charset=utf-8')
 
-  const stream = client.messages.stream({
-    model: 'claude-sonnet-4-5',
-    max_tokens: 1024,
+  const result = streamText({
+    model: 'anthropic/claude-sonnet-4-5',
     messages,
   })
 
-  for await (const event of stream) {
-    if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
-      res.write(event.delta.text)
-    }
+  for await (const chunk of result.textStream) {
+    res.write(chunk)
   }
 
   res.end()

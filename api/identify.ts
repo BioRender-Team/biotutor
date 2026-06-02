@@ -1,9 +1,13 @@
-import Anthropic from '@anthropic-ai/sdk'
+import { generateObject, jsonSchema } from 'ai'
 import type { IncomingMessage, ServerResponse } from 'http'
 
-const client = new Anthropic()
-
-const responseSchema = {
+const schema = jsonSchema<{
+  items: Array<{
+    label: string
+    bbox: { x1: number; x2: number; y1: number; y2: number }
+    notes?: string
+  }>
+}>({
   type: 'object',
   properties: {
     items: {
@@ -32,7 +36,7 @@ const responseSchema = {
   },
   required: ['items'],
   additionalProperties: false,
-}
+})
 
 function readBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -71,27 +75,20 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     return
   }
 
-  const response = await client.messages.create({
-    model: 'claude-sonnet-4-5',
-    max_tokens: 1024,
+  const { object } = await generateObject({
+    model: 'anthropic/claude-sonnet-4-5',
+    schema,
     messages: [
       {
         role: 'user',
         content: [
-          {
-            type: 'image',
-            source: { type: 'base64', media_type: 'image/png', data: image },
-          },
+          { type: 'image', image, mimeType: 'image/png' },
           { type: 'text', text: prompt },
         ],
       },
     ],
-    output_config: {
-      format: { type: 'json_schema', schema: responseSchema },
-    },
   })
 
-  const text = response.content.find((b) => b.type === 'text')?.text ?? '{}'
   res.setHeader('Content-Type', 'application/json')
-  res.end(text)
+  res.end(JSON.stringify(object))
 }
