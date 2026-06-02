@@ -134,7 +134,8 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     return
   }
 
-  const { image, bioRenderJson, prompt } = body as Record<string, unknown>
+  const { image, bioRenderJson, prompt, model } = body as Record<string, unknown>
+  const resolvedModel = typeof model === 'string' ? model : 'anthropic/claude-sonnet-4.5'
 
   if (typeof prompt !== 'string' || prompt.trim().length === 0) {
     res.writeHead(400)
@@ -190,7 +191,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   }
 
   const { object } = await generateObject({
-    model: 'anthropic/claude-sonnet-4-5',
+    model: resolvedModel,
     schema,
     messages,
   })

@@ -5,6 +5,13 @@ import styles from './EditPage.module.css'
 type BoundingBox = { x1: number; x2: number; y1: number; y2: number }
 type Item = { label: string; bbox: BoundingBox }
 
+const MODELS = [
+  { label: 'Sonnet',  value: 'anthropic/claude-sonnet-4.5' },
+  { label: 'Haiku',   value: 'anthropic/claude-haiku-4.5'  },
+  { label: 'Gemini',  value: 'google/gemini-2.5-flash'     },
+  { label: 'GPT-5',   value: 'openai/gpt-5'                },
+]
+
 const AUDIENCES = [
   'Middle school students',
   'High school students',
@@ -26,6 +33,7 @@ const EXPECTED_OUTPUT =
 export function EditPage() {
   const { name } = useParams<{ name: string }>()
   const [items, setItems] = useState<Item[]>([])
+  const [model, setModel] = useState(MODELS[0].value)
   const [loading, setLoading] = useState(false)
   const [prompt, setPrompt] = useState(DEFAULT_PROMPT)
   const [describePrompt, setDescribePrompt] = useState(DEFAULT_DESCRIBE_PROMPT)
@@ -63,7 +71,7 @@ export function EditPage() {
 
       if (jsonRes.ok) {
         const bioRenderJson = await jsonRes.text()
-        payload = { bioRenderJson, prompt: fullPrompt }
+        payload = { bioRenderJson, prompt: fullPrompt, model }
       } else {
         // Fall back to image vision
         const imgRes = await fetch(`/illustrations/${name}.png`)
@@ -73,7 +81,7 @@ export function EditPage() {
           reader.onload = () => resolve((reader.result as string).split(',')[1])
           reader.readAsDataURL(blob)
         })
-        payload = { image: base64, prompt: fullPrompt }
+        payload = { image: base64, prompt: fullPrompt, model }
       }
 
       const response = await fetch('/api/identify', {
@@ -123,6 +131,10 @@ export function EditPage() {
       </div>
 
       <div className={styles.sidebar}>
+        <select className={styles.select} value={model} onChange={(e) => setModel(e.target.value)}>
+          {MODELS.map((m) => <option key={m.value} value={m.value}>{m.label}</option>)}
+        </select>
+
         <textarea
           className={styles.promptInput}
           value={prompt}
@@ -185,7 +197,7 @@ export function EditPage() {
               const r = await fetch('/api/describe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ items, audience, prompt: describePrompt }),
+                body: JSON.stringify({ items, audience, prompt: describePrompt, model }),
               })
               const data = await r.json()
               const map: Record<string, string> = {}
