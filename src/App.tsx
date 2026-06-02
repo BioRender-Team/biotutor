@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Header } from './components/Header'
 import { HomePage } from './pages/HomePage'
 import { IllustrationPage } from './pages/IllustrationPage'
+import { EditPage } from './pages/EditPage'
 import styles from './App.module.css'
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/:name" element={<IllustrationPage />} />
+            <Route path="/:name/edit" element={<EditPage />} />
           </Routes>
         </main>
       </div>
