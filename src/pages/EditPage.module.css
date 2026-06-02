@@ -254,18 +254,19 @@ details[open] .accordionSummary::before {
   text-decoration: underline;
 }
 
-.tooltipSource {
-  display: block;
-  margin-top: 8px;
-  font-size: 11px;
+.citationRef {
+  display: inline;
+  margin-left: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  vertical-align: super;
+  line-height: 0;
   color: rgba(28, 108, 242, 0.85);
   text-decoration: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  cursor: pointer;
 }
 
-.tooltipSource:hover {
+.citationRef:hover {
   color: #1C6CF2;
   text-decoration: underline;
 }

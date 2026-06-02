@@ -9,6 +9,13 @@ type BoundingBox = { x: number; y: number; width: number; height: number }
 type Item = { label: string; bbox: BoundingBox }
 type Description = { description: string; source: { title: string; url: string } }
 
+function safeUrl(url: string): string | undefined {
+  try {
+    const p = new URL(url)
+    return p.protocol === 'https:' || p.protocol === 'http:' ? url : undefined
+  } catch { return undefined }
+}
+
 const MODELS = [
   { label: 'Sonnet',  value: 'anthropic/claude-sonnet-4.5' },
   { label: 'Haiku',   value: 'anthropic/claude-haiku-4.5'  },
@@ -277,14 +284,14 @@ export function EditPage() {
                   <div className={styles.tooltipContent}>
                     <div className={styles.tooltipHeader}>{item.label}</div>
                     {desc ? (
-                      <>
-                        <div className={styles.tooltipBody}>{desc.description}</div>
-                        {desc.source?.url && (
-                          <a className={styles.tooltipSource} href={desc.source.url} target="_blank" rel="noreferrer">
-                            {desc.source.title || desc.source.url}
+                      <div className={styles.tooltipBody}>
+                        {desc.description}
+                        {safeUrl(desc.source?.url) && (
+                          <a className={styles.citationRef} href={safeUrl(desc.source.url)} target="_blank" rel="noreferrer">
+                            [{i + 1}]
                           </a>
                         )}
-                      </>
+                      </div>
                     ) : (
                       <div className={styles.tooltipEmpty}>No description yet</div>
                     )}
@@ -293,7 +300,7 @@ export function EditPage() {
                 placement="right"
                 popperOptions={{ modifiers: [{ name: 'flip', options: { fallbackPlacements: ['left', 'bottom', 'top'] } }] }}
                 animation="shift-away"
-                interactive={false}
+                interactive={true}
                 arrow={true}
                 theme="biotutor"
                 trigger="click"
@@ -407,8 +414,8 @@ export function EditPage() {
                 <li key={label} className={styles.listItem}>
                   <strong>{label}</strong>
                   <span>{desc.description}</span>
-                  {desc.source?.url && (
-                    <a className={styles.sourceLink} href={desc.source.url} target="_blank" rel="noreferrer">
+                  {safeUrl(desc.source?.url) && (
+                    <a className={styles.sourceLink} href={safeUrl(desc.source.url)} target="_blank" rel="noreferrer">
                       {desc.source.title || desc.source.url}
                     </a>
                   )}
