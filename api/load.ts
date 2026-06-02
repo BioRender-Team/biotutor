@@ -6,7 +6,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
   const url = new URL(req.url ?? '', `http://localhost`)
   const name = url.searchParams.get('name')
-  if (!name) { res.writeHead(400); res.end('Missing name'); return }
+  if (typeof name !== 'string' || !/^[a-z0-9_-]{1,64}$/.test(name)) { res.writeHead(400); res.end('Invalid name'); return }
 
   try {
     const blob = await head(`illustrations/${name}.data.json`)

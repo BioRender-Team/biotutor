@@ -14,7 +14,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   if (req.method !== 'POST') { res.writeHead(405); res.end('Method not allowed'); return }
 
   const { name, items, descriptions } = JSON.parse(await readBody(req)) as Record<string, any>
-  if (!name) { res.writeHead(400); res.end('Missing name'); return }
+  if (typeof name !== 'string' || !/^[a-z0-9_-]{1,64}$/.test(name)) { res.writeHead(400); res.end('Invalid name'); return }
 
   const payload = JSON.stringify({ items, descriptions }, null, 2)
 
