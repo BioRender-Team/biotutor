@@ -143,30 +143,32 @@ export function EditPage() {
           rows={6}
         />
 
+        <button
+          className={styles.button}
+          style={{ width: '100%' }}
+          onClick={identify}
+          disabled={loading || !prompt.trim()}
+        >
+          {loading ? 'Identifying…' : 'Identify Key Players'}
+        </button>
         <div className={styles.buttonRow}>
-          <button
-            className={styles.button}
-            onClick={identify}
-            disabled={loading || !prompt.trim()}
-          >
-            {loading ? 'Identifying…' : 'Identify Key Players'}
-          </button>
           {hasTestData && (
             <button
               className={styles.saveButton}
+              style={{ flex: 1 }}
               onClick={async () => {
                 const r = await fetch(`/illustrations/${name}.result.json`)
                 const data = await r.json()
                 setItems(data.items ?? [])
                 updateRect()
               }}
-              title="Load test data"
             >
               Test
             </button>
           )}
           <button
             className={styles.saveButton}
+            style={{ flex: 1 }}
             onClick={() => {
               const blob = new Blob([prompt], { type: 'text/plain' })
               const a = document.createElement('a')
@@ -175,7 +177,6 @@ export function EditPage() {
               a.click()
               URL.revokeObjectURL(a.href)
             }}
-            title="Save prompt to file"
           >
             Save
           </button>
