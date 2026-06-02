@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "label": "Evaporation",
+      "bbox": { "x": 0.1924, "y": 0.5266, "width": 0.1538, "height": 0.2762 }
+    },
+    {
+      "label": "Transpiration",
+      "bbox": { "x": 0.3952, "y": 0.4599, "width": 0.1615, "height": 0.397 }
+    },
+    {
+      "label": "Condensation & Cloud Formation",
+      "bbox": { "x": 0.1366, "y": 0.1705, "width": 0.4376, "height": 0.2884 }
+    },
+    {
+      "label": "Precipitation",
+      "bbox": { "x": 0.5752, "y": 0.2488, "width": 0.3034, "height": 0.2973 }
+    },
+    {
+      "label": "Run-off & Infiltration",
+      "bbox": { "x": 0.5577, "y": 0.5471, "width": 0.2105, "height": 0.3071 }
+    }
+  ]
+}
