@@ -142,6 +142,9 @@
   cursor: pointer;
   user-select: none;
   color: #374151;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
 }
 
 .accordionSummary:hover {
@@ -154,6 +157,8 @@
   flex-direction: column;
   gap: 8px;
   padding: 8px 12px 12px;
+  max-height: 260px;
+  overflow-y: auto;
 }
 
 .listItem {
