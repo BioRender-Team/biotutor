@@ -138,36 +138,6 @@ export function EditPage() {
         >
           {loading ? 'Identifying…' : 'Identify Key Players'}
         </button>
-        <div className={styles.buttonRow}>
-          {hasTestData && (
-            <button
-              className={styles.saveButton}
-              style={{ flex: 1 }}
-              onClick={async () => {
-                const r = await fetch(`/illustrations/${name}.result.json`)
-                const data = await r.json()
-                setItems(data.items ?? [])
-                updateRect()
-              }}
-            >
-              Test
-            </button>
-          )}
-          <button
-            className={styles.saveButton}
-            style={{ flex: 1 }}
-            onClick={() => {
-              const blob = new Blob([prompt], { type: 'text/plain' })
-              const a = document.createElement('a')
-              a.href = URL.createObjectURL(blob)
-              a.download = `${name}-prompt.txt`
-              a.click()
-              URL.revokeObjectURL(a.href)
-            }}
-          >
-            Save
-          </button>
-        </div>
 
         {items.length > 0 && (
           <details className={styles.accordion}>
@@ -210,39 +180,25 @@ export function EditPage() {
           className={styles.button}
           style={{ width: '100%' }}
           onClick={async () => {
-              setDescribing(true)
-              try {
-                const r = await fetch('/api/describe', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ items, audience, prompt: describePrompt }),
-                })
-                const data = await r.json()
-                const map: Record<string, string> = {}
-                for (const d of data.descriptions ?? []) map[d.label] = d.description
-                setDescriptions(map)
-              } finally {
-                setDescribing(false)
-              }
-            }}
-            disabled={describing || items.length === 0 || !audience}
-          >
-            {describing ? 'Generating…' : 'Generate Descriptions'}
-          </button>
-          {hasDescTestData && (
-            <button
-              className={styles.saveButton}
-              onClick={async () => {
-                const r = await fetch(`/illustrations/${name}.descriptions.json`)
-                const data = await r.json()
-                const map: Record<string, string> = {}
-                for (const d of data.descriptions ?? []) map[d.label] = d.description
-                setDescriptions(map)
-              }}
-            >
-              Test
-            </button>
-          )}
+            setDescribing(true)
+            try {
+              const r = await fetch('/api/describe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ items, audience, prompt: describePrompt }),
+              })
+              const data = await r.json()
+              const map: Record<string, string> = {}
+              for (const d of data.descriptions ?? []) map[d.label] = d.description
+              setDescriptions(map)
+            } finally {
+              setDescribing(false)
+            }
+          }}
+          disabled={describing || items.length === 0 || !audience}
+        >
+          {describing ? 'Generating…' : 'Generate Descriptions'}
+        </button>
 
         {Object.keys(descriptions).length > 0 && (
           <details className={styles.accordion}>
@@ -259,6 +215,47 @@ export function EditPage() {
             </ul>
           </details>
         )}
+
+        <div className={styles.spacer} />
+
+        {(hasTestData || hasDescTestData) && (
+          <button
+            className={styles.saveButton}
+            style={{ width: '100%' }}
+            onClick={async () => {
+              if (hasTestData) {
+                const r = await fetch(`/illustrations/${name}.result.json`)
+                const data = await r.json()
+                setItems(data.items ?? [])
+                updateRect()
+              }
+              if (hasDescTestData) {
+                const r = await fetch(`/illustrations/${name}.descriptions.json`)
+                const data = await r.json()
+                const map: Record<string, string> = {}
+                for (const d of data.descriptions ?? []) map[d.label] = d.description
+                setDescriptions(map)
+              }
+            }}
+          >
+            Load Test Data
+          </button>
+        )}
+        <button
+          className={styles.saveButton}
+          style={{ width: '100%' }}
+          onClick={() => {
+            const content = `# Identify Prompt\n${prompt}\n\n# Describe Prompt\n${describePrompt}`
+            const blob = new Blob([content], { type: 'text/plain' })
+            const a = document.createElement('a')
+            a.href = URL.createObjectURL(blob)
+            a.download = `${name}-prompts.txt`
+            a.click()
+            URL.revokeObjectURL(a.href)
+          }}
+        >
+          Save Prompts
+        </button>
       </div>
     </div>
   )
