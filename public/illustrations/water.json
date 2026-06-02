@@ -51,7 +51,8 @@
                 "document": {
                     "type": "FIGURE",
                     "canvasType": "FIGURE",
-                    "units": "in"
+                    "units": "in",
+                    "aspectRatio": 0
                 },
                 "parent": {
                     "parentId": "c782b86a-e5f2-4a59-bcc8-cdd6be43dc82",
@@ -64,7 +65,7 @@
                 "type": "FIGURE_OBJECT",
                 "relativeTransform": {
                     "translate": {
-                        "x": 0,
+                        "x": 14.169083042400416,
                         "y": 0
                     },
                     "rotate": 0,
@@ -77,7 +78,7 @@
                 "path": {
                     "type": "RECT",
                     "size": {
-                        "x": 960,
+                        "x": 768,
                         "y": 672
                     }
                 },
@@ -107,33 +108,20 @@
                     "order": "5"
                 }
             },
-            "012d19b0-abc8-4a16-bf9e-80a941e711da": {
-                "type": "FIGURE_OBJECT",
-                "id": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                "relativeTransform": {
-                    "translate": {
-                        "x": 12.632331255833776,
-                        "y": -4.235710107929833
-                    },
-                    "rotate": 0
-                },
-                "isLocked": false,
-                "parent": {
-                    "type": "CHILD",
-                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
-                    "order": "5"
-                },
-                "assetId": "5e20af779031520086589af1"
-            },
             "dc8183cb-dff3-4768-83e9-791f6c19682b": {
                 "type": "FIGURE_OBJECT",
                 "id": "dc8183cb-dff3-4768-83e9-791f6c19682b",
                 "relativeTransform": {
                     "translate": {
-                        "x": -295.31220712397464,
-                        "y": -270.3971211784407
+                        "x": 16.029708164090053,
+                        "y": -274.50856441691985
                     },
-                    "rotate": 0
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
                 },
                 "opacity": 1,
                 "pathStyles": [
@@ -145,17 +133,17 @@
                 "text": {
                     "textData": {
                         "lineSpacing": "normal",
-                        "alignment": "left",
+                        "alignment": "center",
                         "lines": [
                             {
                                 "runs": [
                                     {
                                         "style": {
                                             "fontFamily": "Roboto",
-                                            "fontSize": 29.626334197449978,
+                                            "fontSize": 37.33333333333333,
                                             "color": "rgba(35,70,115,1)",
                                             "fontWeight": "bold",
-                                            "fontStyle": "italic",
+                                            "fontStyle": "normal",
                                             "decoration": "none",
                                             "script": "none"
                                         },
@@ -168,7 +156,7 @@
                                 "text": "The Water Cycle",
                                 "baseStyle": {
                                     "fontFamily": "Roboto",
-                                    "fontSize": 29.626334197449978,
+                                    "fontSize": 37.33333333333333,
                                     "color": "rgba(35,70,115,1)",
                                     "fontWeight": "bold",
                                     "fontStyle": "italic",
@@ -180,12 +168,12 @@
                         "verticalAlign": "TOP"
                     },
                     "size": {
-                        "x": 227.7448550478316,
-                        "y": 34
+                        "x": 303.7455955691291,
+                        "y": 44
                     },
                     "targetSize": {
-                        "x": 227.7448550478316,
-                        "y": 34
+                        "x": 303.7455955691291,
+                        "y": 44
                     },
                     "format": "BETTER_TEXT",
                     "verticalAlign": "TOP"
@@ -193,220 +181,8 @@
                 "isLocked": false,
                 "parent": {
                     "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "02"
-                }
-            },
-            "bee4faf6-9a56-461b-a268-ce927630428f": {
-                "type": "FIGURE_OBJECT",
-                "id": "bee4faf6-9a56-461b-a268-ce927630428f",
-                "relativeTransform": {
-                    "translate": {
-                        "x": -389.17112007456933,
-                        "y": 23.33413615274253
-                    },
-                    "rotate": 0
-                },
-                "opacity": 1,
-                "path": {
-                    "type": "POLY_LINE",
-                    "points": [
-                        {
-                            "x": 0,
-                            "y": 214.56222836353493
-                        },
-                        {
-                            "x": 0,
-                            "y": -214.56222836353493
-                        }
-                    ],
-                    "closed": false
-                },
-                "pathStyles": [
-                    {
-                        "type": "FILL",
-                        "fillStyle": "transparent"
-                    },
-                    {
-                        "type": "STROKE",
-                        "strokeStyle": {
-                            "units": "PATH_LENGTH",
-                            "stops": {
-                                "0": "#7DB8E200",
-                                "1": "#7DB8E2",
-                                "0.45": "#7DB8E2"
-                            }
-                        },
-                        "lineWidth": 18.516458873406236,
-                        "lineJoin": "round"
-                    }
-                ],
-                "pathMarkers": {
-                    "markerEnd": {
-                        "type": "PATH",
-                        "units": {
-                            "type": "STROKE_WIDTH",
-                            "scale": 0.5
-                        },
-                        "orient": {
-                            "type": "CLIPPED_CHORD"
-                        },
-                        "clipDistance": 4,
-                        "name": "arrow",
-                        "relativeTransform": {
-                            "translate": {
-                                "x": 0,
-                                "y": 0
-                            },
-                            "rotate": 0,
-                            "skewX": 0,
-                            "scale": {
-                                "x": 1,
-                                "y": 1
-                            }
-                        },
-                        "path": {
-                            "type": "SPLINE",
-                            "spline": {
-                                "points": [
-                                    {
-                                        "x": 0,
-                                        "y": 0,
-                                        "isEndPoint": true
-                                    },
-                                    {
-                                        "x": -5,
-                                        "y": -2.5,
-                                        "isEndPoint": true
-                                    },
-                                    {
-                                        "x": -5,
-                                        "y": 2.5,
-                                        "isEndPoint": true
-                                    }
-                                ],
-                                "closed": true
-                            }
-                        },
-                        "pathStyles": [
-                            {
-                                "type": "FILL",
-                                "fillStyle": "context-stroke-flat"
-                            }
-                        ]
-                    }
-                },
-                "isLocked": false,
-                "parent": {
-                    "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
                     "order": "05"
-                }
-            },
-            "8e4075f8-e4d8-4b50-9cf2-95f7b7979f1a": {
-                "type": "FIGURE_OBJECT",
-                "id": "8e4075f8-e4d8-4b50-9cf2-95f7b7979f1a",
-                "relativeTransform": {
-                    "translate": {
-                        "x": 383.4199721362229,
-                        "y": 23.333999999999833
-                    },
-                    "rotate": 0
-                },
-                "opacity": 1,
-                "path": {
-                    "type": "POLY_LINE",
-                    "points": [
-                        {
-                            "x": 0,
-                            "y": -214.56222836353493
-                        },
-                        {
-                            "x": 0,
-                            "y": 214.56222836353493
-                        }
-                    ],
-                    "closed": false
-                },
-                "pathStyles": [
-                    {
-                        "type": "FILL",
-                        "fillStyle": "transparent"
-                    },
-                    {
-                        "type": "STROKE",
-                        "strokeStyle": {
-                            "units": "PATH_LENGTH",
-                            "stops": {
-                                "0": "#7DB8E200",
-                                "1": "#7DB8E2",
-                                "0.45": "#7DB8E2"
-                            }
-                        },
-                        "lineWidth": 18.516458873406236,
-                        "lineJoin": "round"
-                    }
-                ],
-                "pathMarkers": {
-                    "markerEnd": {
-                        "type": "PATH",
-                        "units": {
-                            "type": "STROKE_WIDTH",
-                            "scale": 0.5
-                        },
-                        "orient": {
-                            "type": "CLIPPED_CHORD"
-                        },
-                        "clipDistance": 4,
-                        "name": "arrow",
-                        "relativeTransform": {
-                            "translate": {
-                                "x": 0,
-                                "y": 0
-                            },
-                            "rotate": 0,
-                            "skewX": 0,
-                            "scale": {
-                                "x": 1,
-                                "y": 1
-                            }
-                        },
-                        "path": {
-                            "type": "SPLINE",
-                            "spline": {
-                                "points": [
-                                    {
-                                        "x": 0,
-                                        "y": 0,
-                                        "isEndPoint": true
-                                    },
-                                    {
-                                        "x": -5,
-                                        "y": -2.5,
-                                        "isEndPoint": true
-                                    },
-                                    {
-                                        "x": -5,
-                                        "y": 2.5,
-                                        "isEndPoint": true
-                                    }
-                                ],
-                                "closed": true
-                            }
-                        },
-                        "pathStyles": [
-                            {
-                                "type": "FILL",
-                                "fillStyle": "context-stroke-flat"
-                            }
-                        ]
-                    }
-                },
-                "isLocked": false,
-                "parent": {
-                    "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "1"
                 }
             },
             "8265f5fc-27b0-4733-bb59-9606e8d5d5dd": {
@@ -414,10 +190,15 @@
                 "id": "8265f5fc-27b0-4733-bb59-9606e8d5d5dd",
                 "relativeTransform": {
                     "translate": {
-                        "x": 168.59816713762484,
-                        "y": -67.70054861939104
+                        "x": 197.26013000791642,
+                        "y": -73.76604341954432
                     },
-                    "rotate": 0
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
                 },
                 "opacity": 1,
                 "source": {
@@ -432,8 +213,8 @@
                 "isLocked": false,
                 "parent": {
                     "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "15"
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
+                    "order": "25"
                 }
             },
             "9e27d52c-a993-44a5-90b2-945916c84cd7": {
@@ -1457,10 +1238,15 @@
                 "id": "2be8877c-f3df-415a-8a41-a1d88d42f0d4",
                 "relativeTransform": {
                     "translate": {
-                        "x": 209.19195782328072,
-                        "y": 134.1697909305922
+                        "x": 237.8539206935723,
+                        "y": 128.1042961304389
                     },
-                    "rotate": 0
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
                 },
                 "opacity": 1,
                 "source": {
@@ -1475,8 +1261,8 @@
                 "isLocked": false,
                 "parent": {
                     "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "2"
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
+                    "order": "3"
                 }
             },
             "c5ffb166-0b0a-4303-ba5f-f33810710710": {
@@ -1568,10 +1354,15 @@
                 "id": "749173a7-0906-440d-be1d-f559508b0874",
                 "relativeTransform": {
                     "translate": {
-                        "x": -9.426783727462066,
-                        "y": 34.62158156792384
+                        "x": 19.23517914282951,
+                        "y": 28.55608676777056
                     },
-                    "rotate": 0
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
                 },
                 "opacity": 1,
                 "source": {
@@ -1586,8 +1377,8 @@
                 "isLocked": false,
                 "parent": {
                     "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "3"
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
+                    "order": "5"
                 }
             },
             "8ae93ba8-46b6-4350-8b86-6f46c43e59ec": {
@@ -2100,10 +1891,15 @@
                 "id": "8baa36ca-e283-4048-851a-de0954b2d8d8",
                 "relativeTransform": {
                     "translate": {
-                        "x": 56.23556730000428,
-                        "y": 5.067606928721034
+                        "x": 84.89753017029585,
+                        "y": -0.9978878714322459
                     },
-                    "rotate": 0
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
                 },
                 "opacity": 1,
                 "path": {
@@ -2205,8 +2001,8 @@
                 "isLocked": false,
                 "parent": {
                     "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "4"
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
+                    "order": "55"
                 }
             },
             "07acc60c-98c9-40c2-bffa-880a2d050e46": {
@@ -2214,10 +2010,15 @@
                 "id": "07acc60c-98c9-40c2-bffa-880a2d050e46",
                 "relativeTransform": {
                     "translate": {
-                        "x": -161.60766146222102,
-                        "y": -157.97753758626055
+                        "x": -132.94569859192944,
+                        "y": -164.04303238641384
                     },
-                    "rotate": 0
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
                 },
                 "opacity": 1,
                 "source": {
@@ -2232,8 +2033,8 @@
                 "isLocked": false,
                 "parent": {
                     "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "75"
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
+                    "order": "6"
                 }
             },
             "9553cd2b-4aaf-4be1-94b7-b591172585e3": {
@@ -2327,10 +2128,15 @@
                 "id": "7478bf72-e798-4736-89ef-ca3dae643b37",
                 "relativeTransform": {
                     "translate": {
-                        "x": -220.7718794705341,
-                        "y": 61.29011567528505
+                        "x": -192.1099166002425,
+                        "y": 55.22462087513177
                     },
-                    "rotate": 0
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
                 },
                 "opacity": 1,
                 "source": {
@@ -2345,8 +2151,8 @@
                 "isLocked": false,
                 "parent": {
                     "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "8"
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
+                    "order": "7"
                 }
             },
             "0ea4b4ab-0ece-4ea0-8548-086c14053a44": {
@@ -2440,10 +2246,15 @@
                 "id": "4067687b-f8f3-424d-a809-0192c9d7469f",
                 "relativeTransform": {
                     "translate": {
-                        "x": -2.8758466949665262,
-                        "y": 190.86453608582576
+                        "x": 25.78611617532505,
+                        "y": 184.79904128567247
                     },
-                    "rotate": 0
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
                 },
                 "opacity": 1,
                 "source": {
@@ -2458,8 +2269,8 @@
                 "isLocked": false,
                 "parent": {
                     "type": "CHILD",
-                    "parentId": "012d19b0-abc8-4a16-bf9e-80a941e711da",
-                    "order": "9"
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
+                    "order": "8"
                 }
             },
             "508adb35-da1b-447f-ad4c-bb0ea4d3d755": {
@@ -2590,6 +2401,46 @@
                     "parentId": "4067687b-f8f3-424d-a809-0192c9d7469f",
                     "order": "7"
                 }
+            },
+            "56eb1fa7-323e-4a99-99fb-85b7c5d74383": {
+                "id": "56eb1fa7-323e-4a99-99fb-85b7c5d74383",
+                "name": "Liquid (symbol)",
+                "displayName": "",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 18.117553604990917,
+                        "y": 7.3201971063485605
+                    },
+                    "rotate": 1.5707963267948966,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/63c968d6bf6f490021133e8d/63c96876bf6f490021133e8c.png",
+                    "isPremium": false,
+                    "isOrgIcon": false,
+                    "size": {
+                        "x": 100,
+                        "y": 64.75
+                    },
+                    "fallbackUrl": "sources/icons/63c968d6bf6f490021133e8d/63c96876bf6f490021133e8c.svg"
+                },
+                "source": {
+                    "id": "63c96876bf6f490021133e8c",
+                    "version": "20230119155852",
+                    "type": "ASSETS"
+                },
+                "isPremium": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "f7827ff1-8283-45d2-b891-463cad2c4993",
+                    "order": "95"
+                },
+                "opacity": 0.15
             }
         }
     },
