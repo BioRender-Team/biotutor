@@ -1,5 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { useState, useRef, useLayoutEffect, useCallback } from 'react'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
+import 'tippy.js/animations/shift-away.css'
 import styles from './EditPage.module.css'
 
 type BoundingBox = { x: number; y: number; width: number; height: number }
@@ -175,19 +178,36 @@ export function EditPage() {
           items.map((item, i) => {
             const { x, y, width, height } = item.bbox
             const containerRect = imgRef.current!.parentElement!.getBoundingClientRect()
+            const desc = descriptions[item.label]
             return (
-              <div
+              <Tippy
                 key={i}
-                className={styles.bbox}
-                style={{
-                  left: rect.left - containerRect.left + x * rect.width,
-                  top: rect.top - containerRect.top + y * rect.height,
-                  width: width * rect.width,
-                  height: height * rect.height,
-                }}
+                content={
+                  <div className={styles.tooltipContent}>
+                    <div className={styles.tooltipHeader}>{item.label}</div>
+                    {desc && <div className={styles.tooltipBody}>{desc}</div>}
+                    {!desc && <div className={styles.tooltipEmpty}>No description yet</div>}
+                  </div>
+                }
+                placement="right"
+                popperOptions={{ modifiers: [{ name: 'flip', options: { fallbackPlacements: ['left', 'bottom', 'top'] } }] }}
+                animation="shift-away"
+                interactive={false}
+                arrow={true}
+                theme="biotutor"
+                trigger="click"
+                hideOnClick={true}
               >
-                <span className={styles.bboxLabel}>{item.label}</span>
-              </div>
+                <div
+                  className={styles.hitTarget}
+                  style={{
+                    left: rect.left - containerRect.left + x * rect.width,
+                    top: rect.top - containerRect.top + y * rect.height,
+                    width: width * rect.width,
+                    height: height * rect.height,
+                  }}
+                />
+              </Tippy>
             )
           })}
       </div>
