@@ -50,6 +50,23 @@
   gap: 16px;
 }
 
+.select {
+  width: 100%;
+  font-size: 13px;
+  font-family: inherit;
+  padding: 7px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #1a1a2e;
+}
+
 .promptInput {
   width: 100%;
   font-size: 12px;
