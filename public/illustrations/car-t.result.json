@@ -1,13 +1,32 @@
 {
   "items": [
-    { "label": "Patient (male, curly hair)", "bbox": { "x": 0.099, "y": 0.006, "width": 0.230, "height": 0.994 } },
-    { "label": "T cells",                   "bbox": { "x": 0.482, "y": 0.175, "width": 0.054, "height": 0.030 } },
-    { "label": "CAR T cell",                "bbox": { "x": 0.770, "y": 0.628, "width": 0.077, "height": 0.030 } },
-    { "label": "Virus",                     "bbox": { "x": 0.785, "y": 0.325, "width": 0.038, "height": 0.030 } },
-    { "label": "Cancer cell",               "bbox": { "x": 0.167, "y": 0.683, "width": 0.084, "height": 0.030 } },
-    { "label": "Cancer cell death",         "bbox": { "x": 0.091, "y": 0.591, "width": 0.130, "height": 0.030 } },
-    { "label": "Chimeric Antigen Receptor (CAR) T Cell Therapy", "bbox": { "x": 0.153, "y": 0.459, "width": 0.712, "height": 0.059 } },
-    { "label": "Patient's bloodstream",     "bbox": { "x": 0.200, "y": 0.389, "width": 0.161, "height": 0.030 } },
-    { "label": "Patient's bloodstream",     "bbox": { "x": 0.079, "y": 0.788, "width": 0.161, "height": 0.030 } }
+    {
+      "label": "T cells collected from patient",
+      "bbox": { "x": 0.29, "y": 0.02, "width": 0.25, "height": 0.35 }
+    },
+    {
+      "label": "CAR T cell engineering and expansion",
+      "bbox": { "x": 0.45, "y": 0.06, "width": 0.15, "height": 0.16 }
+    },
+    {
+      "label": "CAR T cells reinfused into bloodstream",
+      "bbox": { "x": 0.29, "y": 0.23, "width": 0.12, "height": 0.15 }
+    },
+    {
+      "label": "CAR T cell proliferation in circulation",
+      "bbox": { "x": 0.46, "y": 0.73, "width": 0.1, "height": 0.2 }
+    },
+    {
+      "label": "CAR T cell recognition and engagement",
+      "bbox": { "x": 0.7, "y": 0.56, "width": 0.08, "height": 0.15 }
+    },
+    {
+      "label": "Cancer cell destruction by CAR T cells",
+      "bbox": { "x": 0.17, "y": 0.56, "width": 0.1, "height": 0.12 }
+    },
+    {
+      "label": "Therapeutic outcome and cancer cell death",
+      "bbox": { "x": 0.09, "y": 0.59, "width": 0.14, "height": 0.04 }
+    }
   ]
 }
