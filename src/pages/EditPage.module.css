@@ -126,11 +126,31 @@
   cursor: default;
 }
 
+.accordion {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.accordionSummary {
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  color: #374151;
+}
+
+.accordionSummary:hover {
+  background: #f9fafb;
+}
+
 .list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 8px 12px 12px;
 }
 
 .listItem {

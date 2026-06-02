@@ -153,17 +153,22 @@ export function EditPage() {
         </div>
 
         {items.length > 0 && (
-          <ul className={styles.list}>
-            {items.map((item, i) => (
-              <li key={i} className={styles.listItem}>
-                <strong>{item.label}</strong>
-                <span className={styles.coords}>
-                  x1:{item.bbox.x1.toFixed(2)} x2:{item.bbox.x2.toFixed(2)}{' '}
-                  y1:{item.bbox.y1.toFixed(2)} y2:{item.bbox.y2.toFixed(2)}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <details className={styles.accordion}>
+            <summary className={styles.accordionSummary}>
+              Key Players ({items.length})
+            </summary>
+            <ul className={styles.list}>
+              {items.map((item, i) => (
+                <li key={i} className={styles.listItem}>
+                  <strong>{item.label}</strong>
+                  <span className={styles.coords}>
+                    x1:{item.bbox.x1.toFixed(2)} x2:{item.bbox.x2.toFixed(2)}{' '}
+                    y1:{item.bbox.y1.toFixed(2)} y2:{item.bbox.y2.toFixed(2)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </details>
         )}
       </div>
     </div>
