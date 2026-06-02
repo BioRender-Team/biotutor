@@ -1,0 +1,21 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Header } from './components/Header'
+import { HomePage } from './pages/HomePage'
+import { IllustrationPage } from './pages/IllustrationPage'
+import styles from './App.module.css'
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div className={styles.app}>
+        <Header />
+        <main className={styles.main}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/:name" element={<IllustrationPage />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+  )
+}
