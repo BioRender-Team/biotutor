@@ -205,6 +205,7 @@ export function EditPage() {
   const [hasDescTestData, setHasDescTestData] = useState(false)
   const [descriptions, setDescriptions] = useState<Record<string, Description>>({})
   const [describing, setDescribing] = useState(false)
+  const [publishing, setPublishing] = useState(false)
 
   useLayoutEffect(() => {
     fetch(`/illustrations/${name}.result.json`, { method: 'HEAD' }).then((r) => setHasTestData(r.ok)).catch(() => {})
@@ -465,6 +466,29 @@ export function EditPage() {
           }}
         >
           Save Prompts
+        </button>
+        <button
+          className={styles.publishButton}
+          style={{ flex: 1 }}
+          disabled={publishing || items.length === 0 || Object.keys(descriptions).length === 0}
+          onClick={async () => {
+            setPublishing(true)
+            try {
+              const descList = items.map((item) => {
+                const d = descriptions[item.label]
+                return { label: item.label, ...(d ?? { description: '', source: { title: '', url: '' } }) }
+              })
+              await fetch('/api/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, items, descriptions: descList }),
+              })
+            } finally {
+              setPublishing(false)
+            }
+          }}
+        >
+          {publishing ? 'Publishing…' : 'Publish'}
         </button>
         </div>
       </div>

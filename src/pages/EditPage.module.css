@@ -160,6 +160,26 @@
   color: #374151;
 }
 
+.publishButton {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  background: #1C6CF2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.publishButton:hover:not(:disabled) {
+  background: #1558cc;
+}
+
+.publishButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .button:hover:not(:disabled) {
   background: #2d2d4e;
 }
