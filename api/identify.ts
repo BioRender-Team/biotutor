@@ -61,7 +61,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   }
 
   const response = await client.messages.create({
-    model: 'claude-opus-4-7',
+    model: 'claude-sonnet-4-5',
     max_tokens: 1024,
     messages: [
       {

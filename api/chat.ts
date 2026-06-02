@@ -54,7 +54,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   res.setHeader('Content-Type', 'text/plain; charset=utf-8')
 
   const stream = client.messages.stream({
-    model: 'claude-opus-4-7',
+    model: 'claude-sonnet-4-5',
     max_tokens: 1024,
     messages,
   })
