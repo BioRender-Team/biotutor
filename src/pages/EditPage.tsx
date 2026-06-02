@@ -2,10 +2,17 @@ import { useParams } from 'react-router-dom'
 import { useState, useRef, useLayoutEffect, useCallback } from 'react'
 import styles from './EditPage.module.css'
 
-type Item = { label: string; bbox: [number, number, number, number] }
+type BoundingBox = { x1: number; x2: number; y1: number; y2: number }
+type Item = { label: string; bbox: BoundingBox; notes?: string }
 
 const DEFAULT_PROMPT =
-  'Identify the key labeled parts in this scientific illustration. For each part return its label and a tight bounding box as [x1, y1, x2, y2] with values normalized 0–1 (fraction of image width/height, origin top-left).'
+  'Identify the key labeled parts in this scientific illustration.'
+
+const EXPECTED_OUTPUT =
+  'Expected output: a list of key players. Each item in the list should be JSON with `label`, ' +
+  '`bbox`: {x1, x2, y1, y2} with values normalized 0–1 (fraction of image width/height, origin top-left), ' +
+  'and optional `notes` which could explain how it interacts with other items on the canvas, or reasoning for why it\'s key. ' +
+  'Notes should be 2 sentences maximum.'
 
 export function EditPage() {
   const { name } = useParams<{ name: string }>()
@@ -39,7 +46,7 @@ export function EditPage() {
       const response = await fetch('/api/identify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image: base64, prompt }),
+        body: JSON.stringify({ image: base64, prompt: `${prompt}\n\n${EXPECTED_OUTPUT}` }),
       })
       const data = await response.json()
       setItems(data.items ?? [])
@@ -63,7 +70,7 @@ export function EditPage() {
         />
         {rect &&
           items.map((item, i) => {
-            const [x1, y1, x2, y2] = item.bbox
+            const { x1, y1, x2, y2 } = item.bbox
             const containerRect = imgRef.current!.parentElement!.getBoundingClientRect()
             return (
               <div
@@ -98,8 +105,10 @@ export function EditPage() {
             {items.map((item, i) => (
               <li key={i} className={styles.listItem}>
                 <strong>{item.label}</strong>
+                {item.notes && <span>{item.notes}</span>}
                 <span className={styles.coords}>
-                  [{item.bbox.map((n) => n.toFixed(2)).join(', ')}]
+                  x1:{item.bbox.x1.toFixed(2)} x2:{item.bbox.x2.toFixed(2)}{' '}
+                  y1:{item.bbox.y1.toFixed(2)} y2:{item.bbox.y2.toFixed(2)}
                 </span>
               </li>
             ))}

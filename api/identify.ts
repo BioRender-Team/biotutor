@@ -12,7 +12,18 @@ const responseSchema = {
         type: 'object',
         properties: {
           label: { type: 'string' },
-          bbox: { type: 'array', items: { type: 'number' } },
+          bbox: {
+            type: 'object',
+            properties: {
+              x1: { type: 'number' },
+              x2: { type: 'number' },
+              y1: { type: 'number' },
+              y2: { type: 'number' },
+            },
+            required: ['x1', 'x2', 'y1', 'y2'],
+            additionalProperties: false,
+          },
+          notes: { type: 'string' },
         },
         required: ['label', 'bbox'],
         additionalProperties: false,
