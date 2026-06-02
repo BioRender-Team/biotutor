@@ -130,22 +130,22 @@ export function EditPage() {
     try {
       const fullPrompt = [prompt, EXPECTED_OUTPUT].join('\n\n')
 
-      // Try loading BioRender JSON first
-      const jsonRes = await fetch(`/illustrations/${name}.json`)
-      let payload: Record<string, string>
+      const [jsonRes, imgRes] = await Promise.all([
+        fetch(`/illustrations/${name}.json`),
+        fetch(`/illustrations/${name}.png`),
+      ])
+      const blob = await imgRes.blob()
+      const base64 = await new Promise<string>((resolve) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve((reader.result as string).split(',')[1])
+        reader.readAsDataURL(blob)
+      })
 
+      let payload: Record<string, string>
       if (jsonRes.ok) {
         const bioRenderJson = await jsonRes.text()
-        payload = { bioRenderJson, prompt: fullPrompt, model }
+        payload = { bioRenderJson, image: base64, prompt: fullPrompt, model }
       } else {
-        // Fall back to image vision
-        const imgRes = await fetch(`/illustrations/${name}.png`)
-        const blob = await imgRes.blob()
-        const base64 = await new Promise<string>((resolve) => {
-          const reader = new FileReader()
-          reader.onload = () => resolve((reader.result as string).split(',')[1])
-          reader.readAsDataURL(blob)
-        })
         payload = { image: base64, prompt: fullPrompt, model }
       }
 

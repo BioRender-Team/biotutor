@@ -146,7 +146,6 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   let messages: any[]
 
   if (typeof bioRenderJson === 'string') {
-    // JSON mode: preprocess BioRender JSON and send as structured text
     let parsed: unknown
     try {
       parsed = JSON.parse(bioRenderJson)
@@ -156,25 +155,23 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
       return
     }
     const figure = preprocessBioRenderJson(parsed)
-    messages = [
-      {
-        role: 'user',
-        content: [
-          {
-            type: 'text',
-            text:
-              `${prompt}\n\n` +
-              `The following is a structured representation of the illustration. ` +
-              `Each object includes its kind (icon or label), name/text, and a pre-computed bbox ` +
-              `with normalized coordinates (0–1, origin top-left). ` +
-              `Use these bboxes directly — do not recalculate them.\n\n` +
-              JSON.stringify(figure, null, 2),
-          },
-        ],
-      },
-    ]
+    const jsonText =
+      `${prompt}\n\n` +
+      `The following is a structured manifest of all objects in the illustration — ` +
+      `icons and labels with pre-computed bboxes (normalized 0–1, origin top-left). ` +
+      `Use these bboxes as the source of truth for coordinates, but use the image to ` +
+      `decide how to group or split elements into meaningful key steps. ` +
+      `Some icons that are visually one unit may be separate manifest entries; ` +
+      `some entries may be irrelevant background. Let the image guide your editorial judgment.\n\n` +
+      JSON.stringify(figure, null, 2)
+
+    const content: any[] = [{ type: 'text', text: jsonText }]
+    if (typeof image === 'string' && image.length > 0) {
+      content.unshift({ type: 'image', image, mimeType: 'image/png' })
+    }
+    messages = [{ role: 'user', content }]
   } else if (typeof image === 'string' && image.length > 0) {
-    // Vision mode: analyze image directly
+    // Vision-only fallback
     messages = [
       {
         role: 'user',
