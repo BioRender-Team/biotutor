@@ -17,6 +17,27 @@
   flex: 1;
 }
 
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav {
+  font-size: 12px;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.nav option {
+  background: #1a1a2e;
+  color: #ffffff;
+}
+
 .editButton {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.55);
