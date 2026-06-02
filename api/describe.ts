@@ -38,14 +38,14 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   const { items, audience, prompt, model } = JSON.parse(await readBody(req)) as Record<string, any>
   const resolvedModel = typeof model === 'string' ? model : 'anthropic/claude-sonnet-4.5'
 
-  const audienceLine = audience ? `You are explaining to: ${audience}.` : ''
-  const itemList = items.map((it: any) => `- ${it.label}`).join('\n')
-  const fullPrompt = `${prompt}\n\n${audienceLine}\n\nObjects:\n${itemList}`
+  const objectList = items.map((it: any) => it.label).join(', ')
+  const userMessage = `Audience: ${audience || 'High School'}\nObjects identified in figure: ${objectList}`
 
   const { object } = await generateObject({
     model: resolvedModel,
     schema,
-    messages: [{ role: 'user', content: fullPrompt }],
+    system: prompt,
+    messages: [{ role: 'user', content: userMessage }],
   })
 
   res.setHeader('Content-Type', 'application/json')
