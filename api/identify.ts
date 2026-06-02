@@ -77,7 +77,7 @@ function preprocessBioRenderJson(raw: unknown) {
 const schema = jsonSchema<{
   items: Array<{
     label: string
-    bbox: { x1: number; x2: number; y1: number; y2: number }
+    bbox: { x: number; y: number; width: number; height: number }
   }>
 }>({
   type: 'object',
@@ -91,12 +91,12 @@ const schema = jsonSchema<{
           bbox: {
             type: 'object',
             properties: {
-              x1: { type: 'number' },
-              x2: { type: 'number' },
-              y1: { type: 'number' },
-              y2: { type: 'number' },
+              x:      { type: 'number' },
+              y:      { type: 'number' },
+              width:  { type: 'number' },
+              height: { type: 'number' },
             },
-            required: ['x1', 'x2', 'y1', 'y2'],
+            required: ['x', 'y', 'width', 'height'],
             additionalProperties: false,
           },
         },

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useState, useRef, useLayoutEffect, useCallback } from 'react'
 import styles from './EditPage.module.css'
 
-type BoundingBox = { x1: number; x2: number; y1: number; y2: number }
+type BoundingBox = { x: number; y: number; width: number; height: number }
 type Item = { label: string; bbox: BoundingBox }
 
 const MODELS = [
@@ -90,7 +90,7 @@ const DEFAULT_DESCRIBE_PROMPT =
 
 const EXPECTED_OUTPUT =
   'Expected output: a list of key players. Each item in the list should be JSON with `label` ' +
-  'and `bbox`: {x1, x2, y1, y2} with values normalized 0–1 (fraction of image width/height, origin top-left).'
+  'and `bbox`: {x, y, width, height} where x and y are the top-left corner, all values normalized 0–1 (fraction of image width/height, origin top-left).'
 
 export function EditPage() {
   const { name } = useParams<{ name: string }>()
@@ -173,17 +173,17 @@ export function EditPage() {
         />
         {rect &&
           items.map((item, i) => {
-            const { x1, y1, x2, y2 } = item.bbox
+            const { x, y, width, height } = item.bbox
             const containerRect = imgRef.current!.parentElement!.getBoundingClientRect()
             return (
               <div
                 key={i}
                 className={styles.bbox}
                 style={{
-                  left: rect.left - containerRect.left + x1 * rect.width,
-                  top: rect.top - containerRect.top + y1 * rect.height,
-                  width: (x2 - x1) * rect.width,
-                  height: (y2 - y1) * rect.height,
+                  left: rect.left - containerRect.left + x * rect.width,
+                  top: rect.top - containerRect.top + y * rect.height,
+                  width: width * rect.width,
+                  height: height * rect.height,
                 }}
               >
                 <span className={styles.bboxLabel}>{item.label}</span>
@@ -223,8 +223,8 @@ export function EditPage() {
                 <li key={i} className={styles.listItem}>
                   <strong>{item.label}</strong>
                   <span className={styles.coords}>
-                    x1:{item.bbox.x1.toFixed(2)} x2:{item.bbox.x2.toFixed(2)}{' '}
-                    y1:{item.bbox.y1.toFixed(2)} y2:{item.bbox.y2.toFixed(2)}
+                    x:{item.bbox.x.toFixed(2)} y:{item.bbox.y.toFixed(2)}{' '}
+                    w:{item.bbox.width.toFixed(2)} h:{item.bbox.height.toFixed(2)}
                   </span>
                 </li>
               ))}
