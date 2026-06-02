@@ -218,10 +218,11 @@ export function EditPage() {
 
         <div className={styles.spacer} />
 
+        <div className={styles.buttonRow}>
         {(hasTestData || hasDescTestData) && (
           <button
             className={styles.saveButton}
-            style={{ width: '100%' }}
+            style={{ flex: 1 }}
             onClick={async () => {
               if (hasTestData) {
                 const r = await fetch(`/illustrations/${name}.result.json`)
@@ -243,7 +244,7 @@ export function EditPage() {
         )}
         <button
           className={styles.saveButton}
-          style={{ width: '100%' }}
+          style={{ flex: 1 }}
           onClick={() => {
             const content = `# Identify Prompt\n${prompt}\n\n# Describe Prompt\n${describePrompt}`
             const blob = new Blob([content], { type: 'text/plain' })
@@ -256,6 +257,7 @@ export function EditPage() {
         >
           Save Prompts
         </button>
+        </div>
       </div>
     </div>
   )
