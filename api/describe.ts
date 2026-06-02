@@ -2,7 +2,11 @@ import { generateObject, jsonSchema } from 'ai'
 import type { IncomingMessage, ServerResponse } from 'http'
 
 const schema = jsonSchema<{
-  descriptions: Array<{ label: string; description: string }>
+  descriptions: Array<{
+    label: string
+    description: string
+    source: { title: string; url: string }
+  }>
 }>({
   type: 'object',
   properties: {
@@ -13,8 +17,17 @@ const schema = jsonSchema<{
         properties: {
           label: { type: 'string' },
           description: { type: 'string' },
+          source: {
+            type: 'object',
+            properties: {
+              title: { type: 'string' },
+              url: { type: 'string' },
+            },
+            required: ['title', 'url'],
+            additionalProperties: false,
+          },
         },
-        required: ['label', 'description'],
+        required: ['label', 'description', 'source'],
         additionalProperties: false,
       },
     },

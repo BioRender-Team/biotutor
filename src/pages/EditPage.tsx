@@ -7,6 +7,7 @@ import styles from './EditPage.module.css'
 
 type BoundingBox = { x: number; y: number; width: number; height: number }
 type Item = { label: string; bbox: BoundingBox }
+type Description = { description: string; source: { title: string; url: string } }
 
 const MODELS = [
   { label: 'Sonnet',  value: 'anthropic/claude-sonnet-4.5' },
@@ -195,7 +196,7 @@ export function EditPage() {
   const [audience, setAudience] = useState('')
   const [hasTestData, setHasTestData] = useState(false)
   const [hasDescTestData, setHasDescTestData] = useState(false)
-  const [descriptions, setDescriptions] = useState<Record<string, string>>({})
+  const [descriptions, setDescriptions] = useState<Record<string, Description>>({})
   const [describing, setDescribing] = useState(false)
 
   useLayoutEffect(() => {
@@ -275,8 +276,18 @@ export function EditPage() {
                 content={
                   <div className={styles.tooltipContent}>
                     <div className={styles.tooltipHeader}>{item.label}</div>
-                    {desc && <div className={styles.tooltipBody}>{desc}</div>}
-                    {!desc && <div className={styles.tooltipEmpty}>No description yet</div>}
+                    {desc ? (
+                      <>
+                        <div className={styles.tooltipBody}>{desc.description}</div>
+                        {desc.source?.url && (
+                          <a className={styles.tooltipSource} href={desc.source.url} target="_blank" rel="noreferrer">
+                            {desc.source.title || desc.source.url}
+                          </a>
+                        )}
+                      </>
+                    ) : (
+                      <div className={styles.tooltipEmpty}>No description yet</div>
+                    )}
                   </div>
                 }
                 placement="right"
@@ -374,8 +385,8 @@ export function EditPage() {
                 body: JSON.stringify({ items, audience, prompt: describePrompt, model }),
               })
               const data = await r.json()
-              const map: Record<string, string> = {}
-              for (const d of data.descriptions ?? []) map[d.label] = d.description
+              const map: Record<string, Description> = {}
+              for (const d of data.descriptions ?? []) map[d.label] = { description: d.description, source: d.source ?? { title: '', url: '' } }
               setDescriptions(map)
             } finally {
               setDescribing(false)
@@ -395,7 +406,12 @@ export function EditPage() {
               {Object.entries(descriptions).map(([label, desc]) => (
                 <li key={label} className={styles.listItem}>
                   <strong>{label}</strong>
-                  <span>{desc}</span>
+                  <span>{desc.description}</span>
+                  {desc.source?.url && (
+                    <a className={styles.sourceLink} href={desc.source.url} target="_blank" rel="noreferrer">
+                      {desc.source.title || desc.source.url}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -419,8 +435,8 @@ export function EditPage() {
               if (hasDescTestData) {
                 const r = await fetch(`/illustrations/${name}.descriptions.json`)
                 const data = await r.json()
-                const map: Record<string, string> = {}
-                for (const d of data.descriptions ?? []) map[d.label] = d.description
+                const map: Record<string, Description> = {}
+                for (const d of data.descriptions ?? []) map[d.label] = { description: d.description, source: d.source ?? { title: '', url: '' } }
                 setDescriptions(map)
               }
             }}

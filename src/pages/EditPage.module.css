@@ -240,3 +240,32 @@ details[open] .accordionSummary::before {
   color: #6b7280;
   font-family: monospace;
 }
+
+.sourceLink {
+  font-size: 11px;
+  color: #1C6CF2;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sourceLink:hover {
+  text-decoration: underline;
+}
+
+.tooltipSource {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: rgba(28, 108, 242, 0.85);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tooltipSource:hover {
+  color: #1C6CF2;
+  text-decoration: underline;
+}
