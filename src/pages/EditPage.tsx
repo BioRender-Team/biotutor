@@ -8,8 +8,8 @@ type Item = { label: string; bbox: BoundingBox }
 const MODELS = [
   { label: 'Sonnet',  value: 'anthropic/claude-sonnet-4.5' },
   { label: 'Haiku',   value: 'anthropic/claude-haiku-4.5'  },
-  { label: 'Gemini',  value: 'google/gemini-2.5-flash'     },
-  { label: 'GPT-5',   value: 'openai/gpt-5'                },
+  { label: 'Gemini',  value: 'google/gemini-2.0-flash'     },
+  { label: 'GPT-5.5', value: 'openai/gpt-5.5'              },
 ]
 
 const AUDIENCES = [
