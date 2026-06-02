@@ -31,13 +31,13 @@ export function EditPage() {
   const [describePrompt, setDescribePrompt] = useState(DEFAULT_DESCRIBE_PROMPT)
   const [audience, setAudience] = useState('')
   const [hasTestData, setHasTestData] = useState(false)
+  const [hasDescTestData, setHasDescTestData] = useState(false)
   const [descriptions, setDescriptions] = useState<Record<string, string>>({})
   const [describing, setDescribing] = useState(false)
 
   useLayoutEffect(() => {
-    fetch(`/illustrations/${name}.result.json`, { method: 'HEAD' })
-      .then((r) => setHasTestData(r.ok))
-      .catch(() => {})
+    fetch(`/illustrations/${name}.result.json`, { method: 'HEAD' }).then((r) => setHasTestData(r.ok)).catch(() => {})
+    fetch(`/illustrations/${name}.descriptions.json`, { method: 'HEAD' }).then((r) => setHasDescTestData(r.ok)).catch(() => {})
   }, [name])
   const imgRef = useRef<HTMLImageElement>(null)
   const [imgRect, setImgRect] = useState<DOMRect | null>(null)
@@ -229,6 +229,20 @@ export function EditPage() {
           >
             {describing ? 'Generating…' : 'Generate Descriptions'}
           </button>
+          {hasDescTestData && (
+            <button
+              className={styles.saveButton}
+              onClick={async () => {
+                const r = await fetch(`/illustrations/${name}.descriptions.json`)
+                const data = await r.json()
+                const map: Record<string, string> = {}
+                for (const d of data.descriptions ?? []) map[d.label] = d.description
+                setDescriptions(map)
+              }}
+            >
+              Test
+            </button>
+          )}
 
         {Object.keys(descriptions).length > 0 && (
           <details className={styles.accordion}>

@@ -1,0 +1,40 @@
+{
+  "descriptions": [
+    {
+      "label": "Patient (male, curly hair)",
+      "description": "This represents the individual receiving CAR T-cell therapy, typically a cancer patient whose own immune cells will be genetically modified to fight their malignancy. The patient serves as both the source of T cells and the recipient of the therapeutic intervention."
+    },
+    {
+      "label": "T cells",
+      "description": "These are cytotoxic lymphocytes harvested from the patient's blood that normally function to identify and destroy abnormal cells. In CAR T-cell therapy, these cells are collected via leukapheresis and serve as the foundation for genetic modification."
+    },
+    {
+      "label": "CAR T cell",
+      "description": "This is a genetically engineered T cell that has been modified to express a chimeric antigen receptor on its surface, enabling it to recognize and bind to specific antigens on cancer cells. The CAR construct combines an extracellular antibody-derived targeting domain with intracellular T-cell activation signals."
+    },
+    {
+      "label": "Virus",
+      "description": "In this context, the virus serves as a viral vector, typically a disabled lentivirus or retrovirus, used to deliver the CAR gene into the patient's T cells during ex vivo modification. This transduction process permanently integrates the CAR genetic sequence into the T cell genome."
+    },
+    {
+      "label": "Cancer cell",
+      "description": "This represents the malignant target cell expressing specific tumor-associated antigens that the CAR is designed to recognize, such as CD19 in B-cell lymphomas. These cells will be identified and eliminated by the infused CAR T cells."
+    },
+    {
+      "label": "Cancer cell death",
+      "description": "This depicts apoptosis or cytolysis of the malignant cell following CAR T-cell engagement, mediated through perforin-granzyme release and Fas-FasL interactions. Successful tumor cell destruction is the therapeutic endpoint of CAR T-cell therapy."
+    },
+    {
+      "label": "Chimeric Antigen Receptor (CAR) T Cell Therapy",
+      "description": "This is an innovative form of adoptive cell immunotherapy where a patient's T cells are genetically reprogrammed to express synthetic receptors that redirect immune recognition toward cancer cells. It represents a personalized treatment approach that has shown remarkable efficacy in certain hematologic malignancies."
+    },
+    {
+      "label": "Patient's bloodstream",
+      "description": "This represents the vascular compartment where modified CAR T cells are reinfused after ex vivo expansion and quality control testing. Once in circulation, the CAR T cells traffic to sites of tumor burden to exert their cytotoxic effects."
+    },
+    {
+      "label": "Patient's bloodstream",
+      "description": "This is the circulatory system through which the engineered CAR T cells distribute throughout the body to seek out and eliminate cancer cells wherever they reside. The bloodstream also serves as the site where cytokine release and other systemic effects of CAR T-cell activation may manifest."
+    }
+  ]
+}
