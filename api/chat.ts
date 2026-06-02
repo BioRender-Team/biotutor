@@ -1,6 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk'
-
-export const config = { runtime: 'edge' }
+import type { IncomingMessage, ServerResponse } from 'http'
 
 const client = new Anthropic()
 
@@ -20,22 +19,39 @@ function isValidMessages(val: unknown): val is Anthropic.MessageParam[] {
   )
 }
 
-export default async function handler(req: Request): Promise<Response> {
+function readBody(req: IncomingMessage): Promise<string> {
+  return new Promise((resolve, reject) => {
+    let data = ''
+    req.on('data', (chunk) => (data += chunk))
+    req.on('end', () => resolve(data))
+    req.on('error', reject)
+  })
+}
+
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
   if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 })
+    res.writeHead(405)
+    res.end('Method not allowed')
+    return
   }
 
-let body: unknown
+  let body: unknown
   try {
-    body = await req.json()
+    body = JSON.parse(await readBody(req))
   } catch {
-    return new Response('Invalid JSON', { status: 400 })
+    res.writeHead(400)
+    res.end('Invalid JSON')
+    return
   }
 
   const { messages } = body as Record<string, unknown>
   if (!isValidMessages(messages)) {
-    return new Response('Invalid messages payload', { status: 400 })
+    res.writeHead(400)
+    res.end('Invalid messages payload')
+    return
   }
+
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8')
 
   const stream = client.messages.stream({
     model: 'claude-opus-4-7',
@@ -43,23 +59,11 @@ let body: unknown
     messages,
   })
 
-  return new Response(
-    new ReadableStream({
-      async start(controller) {
-        const encoder = new TextEncoder()
-        for await (const event of stream) {
-          if (
-            event.type === 'content_block_delta' &&
-            event.delta.type === 'text_delta'
-          ) {
-            controller.enqueue(encoder.encode(event.delta.text))
-          }
-        }
-        controller.close()
-      },
-    }),
-    {
-      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  for await (const event of stream) {
+    if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+      res.write(event.delta.text)
     }
-  )
+  }
+
+  res.end()
 }

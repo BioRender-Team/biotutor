@@ -1,6 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk'
-
-export const config = { runtime: 'edge' }
+import type { IncomingMessage, ServerResponse } from 'http'
 
 const client = new Anthropic()
 
@@ -24,19 +23,36 @@ const responseSchema = {
   additionalProperties: false,
 }
 
-export default async function handler(req: Request): Promise<Response> {
-  if (req.method !== 'POST') return new Response('Method not allowed', { status: 405 })
+function readBody(req: IncomingMessage): Promise<string> {
+  return new Promise((resolve, reject) => {
+    let data = ''
+    req.on('data', (chunk) => (data += chunk))
+    req.on('end', () => resolve(data))
+    req.on('error', reject)
+  })
+}
+
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
+  if (req.method !== 'POST') {
+    res.writeHead(405)
+    res.end('Method not allowed')
+    return
+  }
 
   let body: unknown
   try {
-    body = await req.json()
+    body = JSON.parse(await readBody(req))
   } catch {
-    return new Response('Invalid JSON', { status: 400 })
+    res.writeHead(400)
+    res.end('Invalid JSON')
+    return
   }
 
   const { image } = body as Record<string, unknown>
   if (typeof image !== 'string' || image.length === 0) {
-    return new Response('Missing image', { status: 400 })
+    res.writeHead(400)
+    res.end('Missing image')
+    return
   }
 
   const response = await client.messages.create({
@@ -63,5 +79,6 @@ export default async function handler(req: Request): Promise<Response> {
   })
 
   const text = response.content.find((b) => b.type === 'text')?.text ?? '{}'
-  return new Response(text, { headers: { 'Content-Type': 'application/json' } })
+  res.setHeader('Content-Type', 'application/json')
+  res.end(text)
 }
