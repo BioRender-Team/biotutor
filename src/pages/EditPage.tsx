@@ -206,7 +206,9 @@ export function EditPage() {
                     width: width * rect.width,
                     height: height * rect.height,
                   }}
-                />
+                >
+                  <span className={styles.bboxLabel}>{item.label}</span>
+                </div>
               </Tippy>
             )
           })}
