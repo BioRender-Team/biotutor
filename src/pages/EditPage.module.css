@@ -84,8 +84,13 @@
   border-color: #1a1a2e;
 }
 
+.buttonRow {
+  display: flex;
+  gap: 8px;
+}
+
 .button {
-  width: 100%;
+  flex: 1;
   padding: 8px 12px;
   font-size: 14px;
   font-weight: 500;
@@ -94,6 +99,22 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.saveButton {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  background: #f3f4f6;
+  color: #374151;
 }
 
 .button:hover:not(:disabled) {

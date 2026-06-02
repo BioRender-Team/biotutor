@@ -128,13 +128,29 @@ export function EditPage() {
           rows={6}
         />
 
-        <button
-          className={styles.button}
-          onClick={identify}
-          disabled={loading || !prompt.trim()}
-        >
-          {loading ? 'Identifying…' : 'Identify Key Players'}
-        </button>
+        <div className={styles.buttonRow}>
+          <button
+            className={styles.button}
+            onClick={identify}
+            disabled={loading || !prompt.trim()}
+          >
+            {loading ? 'Identifying…' : 'Identify Key Players'}
+          </button>
+          <button
+            className={styles.saveButton}
+            onClick={() => {
+              const blob = new Blob([prompt], { type: 'text/plain' })
+              const a = document.createElement('a')
+              a.href = URL.createObjectURL(blob)
+              a.download = `${name}-prompt.txt`
+              a.click()
+              URL.revokeObjectURL(a.href)
+            }}
+            title="Save prompt to file"
+          >
+            Save
+          </button>
+        </div>
 
         {items.length > 0 && (
           <ul className={styles.list}>
