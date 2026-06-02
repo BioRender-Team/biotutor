@@ -14,6 +14,11 @@ const AUDIENCES = [
 
 const DEFAULT_PROMPT = 'Identify the key labeled parts in this scientific illustration.'
 
+const DEFAULT_DESCRIBE_PROMPT =
+  'Please generate a description for each of the objects listed here. ' +
+  'You are a science tutor who is explaining these concepts to a group of <audience>. ' +
+  'Please output 1-2 sentences per object.'
+
 const EXPECTED_OUTPUT =
   'Expected output: a list of key players. Each item in the list should be JSON with `label` ' +
   'and `bbox`: {x1, x2, y1, y2} with values normalized 0–1 (fraction of image width/height, origin top-left).'
@@ -23,7 +28,17 @@ export function EditPage() {
   const [items, setItems] = useState<Item[]>([])
   const [loading, setLoading] = useState(false)
   const [prompt, setPrompt] = useState(DEFAULT_PROMPT)
+  const [describePrompt, setDescribePrompt] = useState(DEFAULT_DESCRIBE_PROMPT)
   const [audience, setAudience] = useState('')
+  const [hasTestData, setHasTestData] = useState(false)
+  const [descriptions, setDescriptions] = useState<Record<string, string>>({})
+  const [describing, setDescribing] = useState(false)
+
+  useLayoutEffect(() => {
+    fetch(`/illustrations/${name}.result.json`, { method: 'HEAD' })
+      .then((r) => setHasTestData(r.ok))
+      .catch(() => {})
+  }, [name])
   const imgRef = useRef<HTMLImageElement>(null)
   const [imgRect, setImgRect] = useState<DOMRect | null>(null)
 
@@ -136,6 +151,20 @@ export function EditPage() {
           >
             {loading ? 'Identifying…' : 'Identify Key Players'}
           </button>
+          {hasTestData && (
+            <button
+              className={styles.saveButton}
+              onClick={async () => {
+                const r = await fetch(`/illustrations/${name}.result.json`)
+                const data = await r.json()
+                setItems(data.items ?? [])
+                updateRect()
+              }}
+              title="Load test data"
+            >
+              Test
+            </button>
+          )}
           <button
             className={styles.saveButton}
             onClick={() => {
@@ -165,6 +194,53 @@ export function EditPage() {
                     x1:{item.bbox.x1.toFixed(2)} x2:{item.bbox.x2.toFixed(2)}{' '}
                     y1:{item.bbox.y1.toFixed(2)} y2:{item.bbox.y2.toFixed(2)}
                   </span>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+
+        <div className={styles.divider} />
+
+        <textarea
+          className={styles.promptInput}
+          value={describePrompt}
+          onChange={(e) => setDescribePrompt(e.target.value)}
+          rows={5}
+        />
+        <button
+          className={styles.button}
+          onClick={async () => {
+            setDescribing(true)
+            try {
+              const r = await fetch('/api/describe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ items, audience, prompt: describePrompt }),
+              })
+              const data = await r.json()
+              const map: Record<string, string> = {}
+              for (const d of data.descriptions ?? []) map[d.label] = d.description
+              setDescriptions(map)
+            } finally {
+              setDescribing(false)
+            }
+          }}
+          disabled={describing || items.length === 0}
+        >
+          {describing ? 'Generating…' : 'Generate Descriptions'}
+        </button>
+
+        {Object.keys(descriptions).length > 0 && (
+          <details className={styles.accordion}>
+            <summary className={styles.accordionSummary}>
+              Descriptions ({Object.keys(descriptions).length})
+            </summary>
+            <ul className={styles.list}>
+              {Object.entries(descriptions).map(([label, desc]) => (
+                <li key={label} className={styles.listItem}>
+                  <strong>{label}</strong>
+                  <span>{desc}</span>
                 </li>
               ))}
             </ul>

@@ -163,6 +163,12 @@
   font-size: 13px;
 }
 
+.divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 4px 0;
+}
+
 .coords {
   font-size: 11px;
   color: #6b7280;
