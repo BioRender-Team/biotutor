@@ -48,10 +48,15 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     return
   }
 
-  const { image } = body as Record<string, unknown>
+  const { image, prompt } = body as Record<string, unknown>
   if (typeof image !== 'string' || image.length === 0) {
     res.writeHead(400)
     res.end('Missing image')
+    return
+  }
+  if (typeof prompt !== 'string' || prompt.trim().length === 0) {
+    res.writeHead(400)
+    res.end('Missing prompt')
     return
   }
 
@@ -66,10 +71,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
             type: 'image',
             source: { type: 'base64', media_type: 'image/png', data: image },
           },
-          {
-            type: 'text',
-            text: 'Identify the key labeled parts in this scientific illustration. For each part return its label and a tight bounding box as [x1, y1, x2, y2] with values normalized 0–1 (fraction of image width/height, origin top-left).',
-          },
+          { type: 'text', text: prompt },
         ],
       },
     ],

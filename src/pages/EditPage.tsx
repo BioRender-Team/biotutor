@@ -4,10 +4,14 @@ import styles from './EditPage.module.css'
 
 type Item = { label: string; bbox: [number, number, number, number] }
 
+const DEFAULT_PROMPT =
+  'Identify the key labeled parts in this scientific illustration. For each part return its label and a tight bounding box as [x1, y1, x2, y2] with values normalized 0–1 (fraction of image width/height, origin top-left).'
+
 export function EditPage() {
   const { name } = useParams<{ name: string }>()
   const [items, setItems] = useState<Item[]>([])
   const [loading, setLoading] = useState(false)
+  const [prompt, setPrompt] = useState(DEFAULT_PROMPT)
   const imgRef = useRef<HTMLImageElement>(null)
   const [imgRect, setImgRect] = useState<DOMRect | null>(null)
 
@@ -35,7 +39,7 @@ export function EditPage() {
       const response = await fetch('/api/identify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image: base64 }),
+        body: JSON.stringify({ image: base64, prompt }),
       })
       const data = await response.json()
       setItems(data.items ?? [])
@@ -79,7 +83,13 @@ export function EditPage() {
       </div>
 
       <div className={styles.sidebar}>
-        <button className={styles.button} onClick={identify} disabled={loading}>
+        <textarea
+          className={styles.promptInput}
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          rows={6}
+        />
+        <button className={styles.button} onClick={identify} disabled={loading || !prompt.trim()}>
           {loading ? 'Identifying…' : 'Identify Key Players'}
         </button>
 
