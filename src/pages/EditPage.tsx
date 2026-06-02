@@ -196,22 +196,20 @@ export function EditPage() {
           onChange={(e) => setDescribePrompt(e.target.value)}
           rows={5}
         />
-        <div className={styles.buttonRow}>
-          <select
-            className={styles.select}
-            style={{ flex: 1 }}
-            value={audience}
-            onChange={(e) => setAudience(e.target.value)}
-          >
-            <option value="">Audience…</option>
-            {AUDIENCES.map((a) => (
-              <option key={a} value={a}>{a}</option>
-            ))}
-          </select>
-          <button
-            className={styles.button}
-            style={{ flex: 1 }}
-            onClick={async () => {
+        <select
+          className={styles.select}
+          value={audience}
+          onChange={(e) => setAudience(e.target.value)}
+        >
+          <option value="">Audience…</option>
+          {AUDIENCES.map((a) => (
+            <option key={a} value={a}>{a}</option>
+          ))}
+        </select>
+        <button
+          className={styles.button}
+          style={{ width: '100%' }}
+          onClick={async () => {
               setDescribing(true)
               try {
                 const r = await fetch('/api/describe', {
@@ -229,9 +227,8 @@ export function EditPage() {
             }}
             disabled={describing || items.length === 0 || !audience}
           >
-            {describing ? 'Generating…' : 'Generate'}
+            {describing ? 'Generating…' : 'Generate Descriptions'}
           </button>
-        </div>
 
         {Object.keys(descriptions).length > 0 && (
           <details className={styles.accordion}>
