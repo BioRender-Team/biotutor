@@ -25,7 +25,7 @@ export function Header() {
           value=""
           onChange={(e) => { if (e.target.value) navigate(`/${e.target.value}`) }}
         >
-          <option value="">Illustrations ▾</option>
+          <option value="">Illustrations</option>
           {illustrations.map((name) => (
             <option key={name} value={name}>{formatLabel(name)}</option>
           ))}
