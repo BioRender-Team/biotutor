@@ -123,19 +123,6 @@ export function EditPage() {
       </div>
 
       <div className={styles.sidebar}>
-        <select
-          className={styles.select}
-          value={audience}
-          onChange={(e) => setAudience(e.target.value)}
-        >
-          <option value="">Select an audience</option>
-          {AUDIENCES.map((a) => (
-            <option key={a} value={a}>
-              {a}
-            </option>
-          ))}
-        </select>
-
         <textarea
           className={styles.promptInput}
           value={prompt}
@@ -209,28 +196,42 @@ export function EditPage() {
           onChange={(e) => setDescribePrompt(e.target.value)}
           rows={5}
         />
-        <button
-          className={styles.button}
-          onClick={async () => {
-            setDescribing(true)
-            try {
-              const r = await fetch('/api/describe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ items, audience, prompt: describePrompt }),
-              })
-              const data = await r.json()
-              const map: Record<string, string> = {}
-              for (const d of data.descriptions ?? []) map[d.label] = d.description
-              setDescriptions(map)
-            } finally {
-              setDescribing(false)
-            }
-          }}
-          disabled={describing || items.length === 0}
-        >
-          {describing ? 'Generating…' : 'Generate Descriptions'}
-        </button>
+        <div className={styles.buttonRow}>
+          <select
+            className={styles.select}
+            style={{ flex: 1 }}
+            value={audience}
+            onChange={(e) => setAudience(e.target.value)}
+          >
+            <option value="">Audience…</option>
+            {AUDIENCES.map((a) => (
+              <option key={a} value={a}>{a}</option>
+            ))}
+          </select>
+          <button
+            className={styles.button}
+            style={{ flex: 1 }}
+            onClick={async () => {
+              setDescribing(true)
+              try {
+                const r = await fetch('/api/describe', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ items, audience, prompt: describePrompt }),
+                })
+                const data = await r.json()
+                const map: Record<string, string> = {}
+                for (const d of data.descriptions ?? []) map[d.label] = d.description
+                setDescriptions(map)
+              } finally {
+                setDescribing(false)
+              }
+            }}
+            disabled={describing || items.length === 0 || !audience}
+          >
+            {describing ? 'Generating…' : 'Generate'}
+          </button>
+        </div>
 
         {Object.keys(descriptions).length > 0 && (
           <details className={styles.accordion}>
