@@ -4,6 +4,7 @@ import type { IncomingMessage, ServerResponse } from 'http'
 function preprocessBioRenderJson(raw: unknown) {
   const objects = (raw as any).bioData.objects as Record<string, any>
 
+  // Find canvas: largest RECT gives us the coordinate space root
   let canvasW = 0, canvasH = 0, canvasCX = 0, canvasCY = 0
   for (const obj of Object.values(objects)) {
     const size = obj.path?.size
@@ -16,34 +17,57 @@ function preprocessBioRenderJson(raw: unknown) {
   }
 
   const left = canvasCX - canvasW / 2
-  const top = canvasCY - canvasH / 2
+  const top  = canvasCY - canvasH / 2
+
+  // Walk up the parent chain accumulating transforms to get absolute center + total scale.
+  // BioRender uses center-origin: each object's translate is its center in parent space.
+  // Composition: abs = parent.translate + localPos * parent.scale (per axis)
+  function resolve(id: string): { ax: number; ay: number; totalScale: number } {
+    let ax = 0, ay = 0, totalScale = 1
+    let curId: string | undefined = id
+    let first = true
+    while (curId && objects[curId]) {
+      const obj = objects[curId]
+      const tx = obj.relativeTransform?.translate?.x ?? 0
+      const ty = obj.relativeTransform?.translate?.y ?? 0
+      const sx = obj.relativeTransform?.scale?.x ?? 1
+      if (first) {
+        ax = tx; ay = ty; totalScale = sx; first = false
+      } else {
+        ax = tx + ax * sx
+        ay = ty + ay * sx
+        totalScale *= sx
+      }
+      curId = obj.parent?.parentId
+    }
+    return { ax, ay, totalScale }
+  }
 
   function normBbox(cx: number, cy: number, w: number, h: number) {
     return {
       x1: Math.max(0, (cx - w / 2 - left) / canvasW),
-      y1: Math.max(0, (cy - h / 2 - top) / canvasH),
+      y1: Math.max(0, (cy - h / 2 - top)  / canvasH),
       x2: Math.min(1, (cx + w / 2 - left) / canvasW),
-      y2: Math.min(1, (cy + h / 2 - top) / canvasH),
+      y2: Math.min(1, (cy + h / 2 - top)  / canvasH),
     }
   }
 
   const items: { kind: string; name: string; bbox: object }[] = []
 
-  for (const obj of Object.values(objects)) {
-    const translate = obj.relativeTransform?.translate
-    if (!translate) continue
-    const { x, y } = translate
-
+  for (const [id, obj] of Object.entries(objects)) {
     if (obj.text) {
       const lines = obj.text.textData?.lines ?? []
       const label = lines.map((l: any) => l.text ?? '').join(' ').trim()
       if (!label) continue
       const fontSize = lines[0]?.runs?.[0]?.style?.fontSize ?? 16
-      items.push({ kind: 'label', name: label, bbox: normBbox(x, y, label.length * fontSize * 0.55, fontSize * 1.5) })
+      const { ax, ay, totalScale } = resolve(id)
+      const w = label.length * fontSize * totalScale * 0.55
+      const h = fontSize * totalScale * 1.5
+      items.push({ kind: 'label', name: label, bbox: normBbox(ax, ay, w, h) })
     } else if (obj.image && obj.name) {
       const baseSize = obj.image.size ?? { x: 100, y: 100 }
-      const scale = obj.relativeTransform?.scale?.x ?? 1
-      items.push({ kind: 'icon', name: obj.name, bbox: normBbox(x, y, baseSize.x * scale, baseSize.y * scale) })
+      const { ax, ay, totalScale } = resolve(id)
+      items.push({ kind: 'icon', name: obj.name, bbox: normBbox(ax, ay, baseSize.x * totalScale, baseSize.y * totalScale) })
     }
   }
 
