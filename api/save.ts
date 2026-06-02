@@ -18,12 +18,17 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
   const payload = JSON.stringify({ items, descriptions }, null, 2)
 
-  const { url } = await put(`illustrations/${name}.data.json`, payload, {
-    access: 'public',
-    contentType: 'application/json',
-    addRandomSuffix: false,
-  })
-
-  res.setHeader('Content-Type', 'application/json')
-  res.end(JSON.stringify({ url }))
+  try {
+    const { url } = await put(`illustrations/${name}.data.json`, payload, {
+      access: 'private',
+      contentType: 'application/json',
+      addRandomSuffix: false,
+    })
+    res.setHeader('Content-Type', 'application/json')
+    res.end(JSON.stringify({ url }))
+  } catch (err) {
+    console.error('Blob put failed:', err)
+    res.writeHead(500)
+    res.end(JSON.stringify({ error: String(err) }))
+  }
 }

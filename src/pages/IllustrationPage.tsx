@@ -40,6 +40,8 @@ export function IllustrationPage() {
         const map: Record<string, Description> = {}
         for (const d of data.descriptions ?? []) map[d.label] = { description: d.description, source: d.source ?? { title: '', url: '' } }
         setDescriptions(map)
+        // Ensure rect is current after data arrives (image may already be loaded)
+        if (imgRef.current) setImgRect(imgRef.current.getBoundingClientRect())
       })
       .catch(() => {})
   }, [name])

@@ -10,7 +10,9 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
   try {
     const blob = await head(`illustrations/${name}.data.json`)
-    const r = await fetch(blob.url)
+    const r = await fetch(blob.url, {
+      headers: { Authorization: `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}` },
+    })
     if (!r.ok) throw new Error('fetch failed')
     const data = await r.json()
     res.setHeader('Content-Type', 'application/json')
