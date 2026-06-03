@@ -1,0 +1,2797 @@
+{
+    "bioData": {
+        "id": "6ac77479-0dc3-4af4-b2ad-36cfeb8ca63c",
+        "objects": {
+            "6ac77479-0dc3-4af4-b2ad-36cfeb8ca63c": {
+                "id": "6ac77479-0dc3-4af4-b2ad-36cfeb8ca63c",
+                "type": "FIGURE_OBJECT",
+                "document": {
+                    "type": "DOCUMENT_GROUP",
+                    "canvasType": "FIGURE",
+                    "units": "in"
+                }
+            },
+            "bfaeb173-bfc6-4abd-ae8d-c0daa839d0ee": {
+                "id": "bfaeb173-bfc6-4abd-ae8d-c0daa839d0ee",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "path": {
+                    "type": "RECT",
+                    "size": {
+                        "x": 960,
+                        "y": 672
+                    }
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgba(0,0,0,0)"
+                    }
+                ],
+                "parent": {
+                    "parentId": "6ac77479-0dc3-4af4-b2ad-36cfeb8ca63c",
+                    "type": "FRAME",
+                    "order": "5"
+                }
+            },
+            "ad93801d-87f8-4fd9-ae26-c3cda5be36be": {
+                "id": "ad93801d-87f8-4fd9-ae26-c3cda5be36be",
+                "type": "FIGURE_OBJECT",
+                "guide": {
+                    "type": "GRID",
+                    "distance": 0.5,
+                    "units": "in"
+                },
+                "parent": {
+                    "parentId": "6ac77479-0dc3-4af4-b2ad-36cfeb8ca63c",
+                    "type": "GUIDE",
+                    "order": "5"
+                }
+            },
+            "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0": {
+                "id": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                "type": "FIGURE_OBJECT",
+                "document": {
+                    "type": "FIGURE",
+                    "canvasType": "FIGURE",
+                    "units": "in",
+                    "aspectRatio": 0
+                },
+                "parent": {
+                    "type": "DOCUMENT",
+                    "parentId": "6ac77479-0dc3-4af4-b2ad-36cfeb8ca63c",
+                    "order": "7"
+                }
+            },
+            "6f95b46b-522f-4320-adbb-b66c0fbbe06a": {
+                "id": "6f95b46b-522f-4320-adbb-b66c0fbbe06a",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "path": {
+                    "type": "RECT",
+                    "size": {
+                        "x": 768,
+                        "y": 672
+                    }
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgba(0,0,0,0)"
+                    }
+                ],
+                "parent": {
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "type": "FRAME",
+                    "order": "5"
+                }
+            },
+            "32d269ac-1342-4c3c-89d3-3bcf73b1de19": {
+                "type": "FIGURE_OBJECT",
+                "id": "32d269ac-1342-4c3c-89d3-3bcf73b1de19",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.00046663026245141737,
+                        "y": -279.65938491254974
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "opacity": 1,
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgba(35,70,115,1)"
+                    }
+                ],
+                "text": {
+                    "textData": {
+                        "lineSpacing": "normal",
+                        "alignment": "center",
+                        "lines": [
+                            {
+                                "runs": [
+                                    {
+                                        "style": {
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 36.666666666666664,
+                                            "color": "rgba(35,70,115,1)",
+                                            "fontWeight": "bold",
+                                            "fontStyle": "normal",
+                                            "decoration": "none",
+                                            "script": "none"
+                                        },
+                                        "range": [
+                                            0,
+                                            14
+                                        ]
+                                    }
+                                ],
+                                "text": "The Water Cycle",
+                                "baseStyle": {
+                                    "fontFamily": "Roboto",
+                                    "fontSize": 36.666666666666664,
+                                    "color": "rgba(35,70,115,1)",
+                                    "fontWeight": "bold",
+                                    "fontStyle": "italic",
+                                    "decoration": "none",
+                                    "script": "none"
+                                }
+                            }
+                        ],
+                        "verticalAlign": "TOP"
+                    },
+                    "size": {
+                        "x": 326.1032401589318,
+                        "y": 43
+                    },
+                    "targetSize": {
+                        "x": 326.1032401589318,
+                        "y": 43
+                    },
+                    "format": "BETTER_TEXT",
+                    "verticalAlign": "TOP"
+                },
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "05"
+                }
+            },
+            "2513437a-edd4-4941-9d15-cb803b66146b": {
+                "type": "FIGURE_OBJECT",
+                "id": "2513437a-edd4-4941-9d15-cb803b66146b",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 2.9185323786631563,
+                        "y": 38.58898206679386
+                    },
+                    "rotate": 0
+                },
+                "opacity": 0.66,
+                "source": {
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "38fa34b1-90d0-4d2c-9420-90577a8dbc8f",
+                    "order": "1"
+                }
+            },
+            "c03ad2d2-709c-43d9-a288-de8eabf1a2d5": {
+                "type": "FIGURE_OBJECT",
+                "id": "c03ad2d2-709c-43d9-a288-de8eabf1a2d5",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -20.548917452641376,
+                        "y": -11.555660064155248
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "02"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "22fb8ac0-302f-412a-abf9-bafe3943802a": {
+                "type": "FIGURE_OBJECT",
+                "id": "22fb8ac0-302f-412a-abf9-bafe3943802a",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.43375822540596143,
+                        "y": -23.248935537740522
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "05"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "9d199731-5411-4483-a9ba-f2757566b4aa": {
+                "type": "FIGURE_OBJECT",
+                "id": "9d199731-5411-4483-a9ba-f2757566b4aa",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -36.500650221291544,
+                        "y": -38.46731713431418
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "1"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "02e30055-34d6-4f9a-af2a-56dc3ea5a940": {
+                "type": "FIGURE_OBJECT",
+                "id": "02e30055-34d6-4f9a-af2a-56dc3ea5a940",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -11.324650692868417,
+                        "y": 17.511224655969002
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "15"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "10698b50-7c13-4c96-a70a-4cbf903b951f": {
+                "type": "FIGURE_OBJECT",
+                "id": "10698b50-7c13-4c96-a70a-4cbf903b951f",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 49.80707268310594,
+                        "y": 15.664398965898847
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "2"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "f629f320-0e13-403e-9192-2f2f561a3c8b": {
+                "type": "FIGURE_OBJECT",
+                "id": "f629f320-0e13-403e-9192-2f2f561a3c8b",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 14.876964655671369,
+                        "y": 0.4442243346746785
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "22"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "89333de8-c326-4418-8bd5-8aeafb104d49": {
+                "type": "FIGURE_OBJECT",
+                "id": "89333de8-c326-4418-8bd5-8aeafb104d49",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 26.40886701070666,
+                        "y": -17.98996490766684
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "25"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "87c34e32-4d1d-4e19-9ce3-24efd937a5ab": {
+                "type": "FIGURE_OBJECT",
+                "id": "87c34e32-4d1d-4e19-9ce3-24efd937a5ab",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 12.260927100513566,
+                        "y": 48.430314170115246
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "3"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "8af54ab4-a4c8-4bc5-bccc-8d7eb7dc605d": {
+                "type": "FIGURE_OBJECT",
+                "id": "8af54ab4-a4c8-4bc5-bccc-8d7eb7dc605d",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 54.081354969969595,
+                        "y": -33.210106023887114
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "4"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "0a34ba52-2aec-4465-a3e4-4eb7b9b62b6e": {
+                "type": "FIGURE_OBJECT",
+                "id": "0a34ba52-2aec-4465-a3e4-4eb7b9b62b6e",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 12.260927100513566,
+                        "y": 22.01891376746086
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "5"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "f9c6680c-f140-45bc-bd61-47dee33c844d": {
+                "type": "FIGURE_OBJECT",
+                "id": "f9c6680c-f140-45bc-bd61-47dee33c844d",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 35.63286217840037,
+                        "y": -38.46748814163829
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "52"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "6f2b9efa-09c5-480c-85ac-47e543f65f5c": {
+                "type": "FIGURE_OBJECT",
+                "id": "6f2b9efa-09c5-480c-85ac-47e543f65f5c",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -54.08135496996945,
+                        "y": -48.43031417011518
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "55"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "e4c75b93-196e-4b52-960a-df35b72a0d73": {
+                "type": "FIGURE_OBJECT",
+                "id": "e4c75b93-196e-4b52-960a-df35b72a0d73",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -40.66407667987679,
+                        "y": -17.98996490766684
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "6"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "923bc95a-f247-4a61-8157-46bcbec808e0": {
+                "type": "FIGURE_OBJECT",
+                "id": "923bc95a-f247-4a61-8157-46bcbec808e0",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -15.026615264878185,
+                        "y": -41.68015932883633
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "65"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "e74420dc-7e1b-4876-9523-3ddf1b9621e6": {
+                "type": "FIGURE_OBJECT",
+                "id": "e74420dc-7e1b-4876-9523-3ddf1b9621e6",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 44.85736360698851,
+                        "y": 37.23916139905927
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "7"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "3255cbca-4ed2-4577-85e4-0f0790d65bab": {
+                "type": "FIGURE_OBJECT",
+                "id": "3255cbca-4ed2-4577-85e4-0f0790d65bab",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 44.857400530252576,
+                        "y": -8.028760906516354
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "72"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "4ebcf6d3-5f90-4f03-ab5e-abb602598b28": {
+                "type": "FIGURE_OBJECT",
+                "id": "4ebcf6d3-5f90-4f03-ab5e-abb602598b28",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 17.183859321223498,
+                        "y": -41.68015932883633
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "75"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "6e10cbd6-b1df-4209-abf5-3e6dd6892f70": {
+                "type": "FIGURE_OBJECT",
+                "id": "6e10cbd6-b1df-4209-abf5-3e6dd6892f70",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.43375822540596143,
+                        "y": 0.4442243346746785
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "8"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "04a89c08-309d-4d25-9c7e-b6cf04e726ef": {
+                "type": "FIGURE_OBJECT",
+                "id": "04a89c08-309d-4d25-9c7e-b6cf04e726ef",
+                "name": "Raindrop",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 35.63313377047962,
+                        "y": 3.664514567068921
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.04612062785161361,
+                        "y": 0.04612062785161361
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.png",
+                    "fallbackUrl": "sources/icons/5be5f61e7664d21200a3fb69/20190307190652/image/5be5f61e7664d21200a3fb69.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 330
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5f61e7664d21200a3fb69",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "2513437a-edd4-4941-9d15-cb803b66146b",
+                    "order": "9"
+                },
+                "styles": {
+                    "rain_drop": [
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "FILL",
+                            "color": "#c5c9da"
+                        },
+                        {
+                            "monochromeTargetColor": "#A1A9C5",
+                            "styleName": "STROKE",
+                            "color": "#5b658d"
+                        }
+                    ]
+                }
+            },
+            "c1ad9e25-f17c-4e85-905f-d63c3bc9a4ca": {
+                "type": "FIGURE_OBJECT",
+                "id": "c1ad9e25-f17c-4e85-905f-d63c3bc9a4ca",
+                "name": "Cloud 1",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.000471760179980121,
+                        "y": -57.784208494098316
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.5301437602636988,
+                        "y": 0.5301437602636988
+                    }
+                },
+                "opacity": 0.5,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5e4a67664d21200a3f4f5/5be5e4717664d21200a3f4cf.png",
+                    "fallbackUrl": "sources/icons/5be5e4a67664d21200a3f4f5/5be5e4717664d21200a3f4cf.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 139
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5e4717664d21200a3f4cf",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "38fa34b1-90d0-4d2c-9420-90577a8dbc8f",
+                    "order": "2"
+                },
+                "styles": {
+                    "cloud": [
+                        {
+                            "monochromeTargetColor": "#3F3A3A",
+                            "styleName": "FILL",
+                            "color": "#d2d1d1"
+                        },
+                        {
+                            "monochromeTargetColor": "#3F3A3A",
+                            "styleName": "STROKE"
+                        }
+                    ]
+                }
+            },
+            "0ffaa1fe-8935-4a07-b04c-e7e7853a0ad3": {
+                "type": "FIGURE_OBJECT",
+                "id": "0ffaa1fe-8935-4a07-b04c-e7e7853a0ad3",
+                "name": "Cloud 1",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 48.30192814138593,
+                        "y": -51.64172778951593
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.40362966947856727,
+                        "y": 0.4036296694785672
+                    }
+                },
+                "opacity": 0.75,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5e4a67664d21200a3f4f6/5be5e4717664d21200a3f4cf.png",
+                    "fallbackUrl": "sources/icons/5be5e4a67664d21200a3f4f6/5be5e4717664d21200a3f4cf.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 139
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5e4717664d21200a3f4cf",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "38fa34b1-90d0-4d2c-9420-90577a8dbc8f",
+                    "order": "5"
+                }
+            },
+            "74967176-79e4-4bc9-af4b-1c6d377dbc82": {
+                "type": "FIGURE_OBJECT",
+                "id": "74967176-79e4-4bc9-af4b-1c6d377dbc82",
+                "name": "Cloud 2",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -35.65051906287262,
+                        "y": -50.097123970274524
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.5301437602636988,
+                        "y": 0.5301437602636988
+                    }
+                },
+                "opacity": 0.75,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5e4e47664d21200a3f520/5be5e4ac7664d21200a3f4f9.png",
+                    "fallbackUrl": "sources/icons/5be5e4e47664d21200a3f520/5be5e4ac7664d21200a3f4f9.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 100
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5e4ac7664d21200a3f4f9",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "38fa34b1-90d0-4d2c-9420-90577a8dbc8f",
+                    "order": "6"
+                }
+            },
+            "8144fa3e-e356-4fcd-9b53-caa2401d33fb": {
+                "type": "FIGURE_OBJECT",
+                "id": "8144fa3e-e356-4fcd-9b53-caa2401d33fb",
+                "name": "Cloud 2",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 17.40312687166493,
+                        "y": -39.47461381091676
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.6153594609875682,
+                        "y": 0.6153594609875682
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/5be5e4e47664d21200a3f51f/5be5e4ac7664d21200a3f4f9.png",
+                    "fallbackUrl": "sources/icons/5be5e4e47664d21200a3f51f/5be5e4ac7664d21200a3f4f9.svg",
+                    "size": {
+                        "x": 200,
+                        "y": 100
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5be5e4ac7664d21200a3f4f9",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "38fa34b1-90d0-4d2c-9420-90577a8dbc8f",
+                    "order": "7"
+                }
+            },
+            "d2e8a1f3-2b40-4c0f-af8e-b48bacbdc2c8": {
+                "type": "FIGURE_OBJECT",
+                "id": "d2e8a1f3-2b40-4c0f-af8e-b48bacbdc2c8",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 214.8027543346914,
+                        "y": 125.82120090870664
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "opacity": 1,
+                "source": {
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "15"
+                }
+            },
+            "f0ed3fa2-b9f2-4667-bd5b-6893e0b418d3": {
+                "type": "FIGURE_OBJECT",
+                "id": "f0ed3fa2-b9f2-4667-bd5b-6893e0b418d3",
+                "name": "Soil profile",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.12977919251255476,
+                        "y": 48.48397950866042
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.41223978798105215,
+                        "y": 0.41223978798105226
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://res.cloudinary.com/dlcjuc3ej/image/upload/v1528142264/hp3gvnq2m3nak69sgxmx.svg",
+                    "size": {
+                        "x": 205,
+                        "y": 237
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5b15996da3b6d40014c0a80b",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "d2e8a1f3-2b40-4c0f-af8e-b48bacbdc2c8",
+                    "order": "2"
+                }
+            },
+            "7d815894-29cc-46d4-a048-d852cc3c519a": {
+                "type": "FIGURE_OBJECT",
+                "id": "7d815894-29cc-46d4-a048-d852cc3c519a",
+                "name": "Tree (coniferous)",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 0.667981137932255,
+                        "y": -45.97237043003511
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.28246059546849867,
+                        "y": 0.290094665616296
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://res.cloudinary.com/dlcjuc3ej/image/upload/v1526589979/gwgn3po3kryq6wbdyuot.svg",
+                    "size": {
+                        "x": 267,
+                        "y": 354
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5afde9c5778f080014346a8f",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "d2e8a1f3-2b40-4c0f-af8e-b48bacbdc2c8",
+                    "order": "5"
+                }
+            },
+            "de18c806-43a0-4ae3-a178-e39bc9b3682b": {
+                "type": "FIGURE_OBJECT",
+                "id": "de18c806-43a0-4ae3-a178-e39bc9b3682b",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 3.1040804463005767,
+                        "y": 29.42404959151581
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "opacity": 1,
+                "source": {
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "25"
+                }
+            },
+            "27d58676-8ec9-4727-ad74-b79583625577": {
+                "type": "FIGURE_OBJECT",
+                "id": "27d58676-8ec9-4727-ad74-b79583625577",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.00034576358860265123,
+                        "y": -0.5350628720296501
+                    },
+                    "rotate": 0
+                },
+                "opacity": 1,
+                "path": {
+                    "type": "ARC",
+                    "size": {
+                        "x": 411.3134033498517,
+                        "y": 411.3134033498517
+                    },
+                    "startAngle": -2.258797996602695,
+                    "sweepAngle": 1.2050212308718011,
+                    "selectedObjectIds": [
+                        "27d58676-8ec9-4727-ad74-b79583625577"
+                    ]
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgba(0,0,0,0)"
+                    },
+                    {
+                        "type": "STROKE",
+                        "strokeStyle": {
+                            "units": "PATH_LENGTH",
+                            "stops": {
+                                "0": "#425E9600",
+                                "1": "#425E96",
+                                "0.45": "#425E96"
+                            }
+                        },
+                        "lineWidth": 2.885164254178575,
+                        "lineJoin": "round"
+                    }
+                ],
+                "pathMarkers": {
+                    "markerEnd": {
+                        "type": "PATH",
+                        "units": {
+                            "type": "STROKE_WIDTH",
+                            "scale": 1
+                        },
+                        "orient": {
+                            "type": "CLIPPED_CHORD"
+                        },
+                        "clipDistance": 4,
+                        "name": "arrow",
+                        "relativeTransform": {
+                            "translate": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "rotate": 0,
+                            "skewX": 0,
+                            "scale": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        "path": {
+                            "type": "SPLINE",
+                            "spline": {
+                                "points": [
+                                    {
+                                        "x": 0,
+                                        "y": 0,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": -2.5,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": 2.5,
+                                        "isEndPoint": true
+                                    }
+                                ],
+                                "closed": true
+                            }
+                        },
+                        "pathStyles": [
+                            {
+                                "type": "FILL",
+                                "fillStyle": "context-stroke-flat"
+                            }
+                        ]
+                    }
+                },
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "de18c806-43a0-4ae3-a178-e39bc9b3682b",
+                    "order": "1"
+                }
+            },
+            "c6b95aae-2230-4833-b07e-27159e11da2e": {
+                "type": "FIGURE_OBJECT",
+                "id": "c6b95aae-2230-4833-b07e-27159e11da2e",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 0.00034576358860265123,
+                        "y": 0.5350628720296501
+                    },
+                    "rotate": 0
+                },
+                "opacity": 1,
+                "path": {
+                    "type": "ARC",
+                    "size": {
+                        "x": 411.3134033498517,
+                        "y": 411.3134033498517
+                    },
+                    "startAngle": -0.5081077745731245,
+                    "sweepAngle": 0.4560227157120069
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "transparent"
+                    },
+                    {
+                        "type": "STROKE",
+                        "strokeStyle": {
+                            "units": "PATH_LENGTH",
+                            "stops": {
+                                "0": "#425E9600",
+                                "1": "#425E96",
+                                "0.45": "#425E96"
+                            }
+                        },
+                        "lineWidth": 2.885164254178575,
+                        "lineJoin": "round"
+                    }
+                ],
+                "pathMarkers": {
+                    "markerEnd": {
+                        "type": "PATH",
+                        "units": {
+                            "type": "STROKE_WIDTH",
+                            "scale": 1
+                        },
+                        "orient": {
+                            "type": "CLIPPED_CHORD"
+                        },
+                        "clipDistance": 4,
+                        "name": "arrow",
+                        "relativeTransform": {
+                            "translate": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "rotate": 0,
+                            "skewX": 0,
+                            "scale": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        "path": {
+                            "type": "SPLINE",
+                            "spline": {
+                                "points": [
+                                    {
+                                        "x": 0,
+                                        "y": 0,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": -2.5,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": 2.5,
+                                        "isEndPoint": true
+                                    }
+                                ],
+                                "closed": true
+                            }
+                        },
+                        "pathStyles": [
+                            {
+                                "type": "FILL",
+                                "fillStyle": "context-stroke-flat"
+                            }
+                        ]
+                    }
+                },
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "de18c806-43a0-4ae3-a178-e39bc9b3682b",
+                    "order": "5"
+                }
+            },
+            "0d64ee98-4002-4beb-ba41-6707c6bb5405": {
+                "type": "FIGURE_OBJECT",
+                "id": "0d64ee98-4002-4beb-ba41-6707c6bb5405",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.00034576358860265123,
+                        "y": 0.5343713448526648
+                    },
+                    "rotate": 0
+                },
+                "opacity": 1,
+                "path": {
+                    "type": "ARC",
+                    "size": {
+                        "x": 411.3134033498517,
+                        "y": 411.3134033498517
+                    },
+                    "startAngle": 2.030896177317802,
+                    "sweepAngle": 1.4328460583014815,
+                    "selectedObjectIds": [
+                        "0d64ee98-4002-4beb-ba41-6707c6bb5405"
+                    ]
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgba(0,0,0,0)"
+                    },
+                    {
+                        "type": "STROKE",
+                        "strokeStyle": {
+                            "units": "PATH_LENGTH",
+                            "stops": {
+                                "0": "#425E9600",
+                                "1": "#425E96",
+                                "0.45": "#425E96"
+                            }
+                        },
+                        "lineWidth": 2.885164254178575,
+                        "lineJoin": "round"
+                    }
+                ],
+                "pathMarkers": {
+                    "markerEnd": {
+                        "type": "PATH",
+                        "units": {
+                            "type": "STROKE_WIDTH",
+                            "scale": 1
+                        },
+                        "orient": {
+                            "type": "CLIPPED_CHORD"
+                        },
+                        "clipDistance": 4,
+                        "name": "arrow",
+                        "relativeTransform": {
+                            "translate": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "rotate": 0,
+                            "skewX": 0,
+                            "scale": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        "path": {
+                            "type": "SPLINE",
+                            "spline": {
+                                "points": [
+                                    {
+                                        "x": 0,
+                                        "y": 0,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": -2.5,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": 2.5,
+                                        "isEndPoint": true
+                                    }
+                                ],
+                                "closed": true
+                            }
+                        },
+                        "pathStyles": [
+                            {
+                                "type": "FILL",
+                                "fillStyle": "context-stroke-flat"
+                            }
+                        ]
+                    }
+                },
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "de18c806-43a0-4ae3-a178-e39bc9b3682b",
+                    "order": "6"
+                }
+            },
+            "563e9b21-4b5d-4763-a030-cc9efce8c278": {
+                "type": "FIGURE_OBJECT",
+                "id": "563e9b21-4b5d-4763-a030-cc9efce8c278",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.00034576358860265123,
+                        "y": -0.5350628720296501
+                    },
+                    "rotate": 0
+                },
+                "opacity": 1,
+                "path": {
+                    "type": "ARC",
+                    "size": {
+                        "x": 411.3134033498517,
+                        "y": 411.3134033498517
+                    },
+                    "startAngle": 0.6540936985519756,
+                    "sweepAngle": 0.46959458887949324
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "transparent"
+                    },
+                    {
+                        "type": "STROKE",
+                        "strokeStyle": {
+                            "units": "PATH_LENGTH",
+                            "stops": {
+                                "0": "#425E9600",
+                                "1": "#425E96",
+                                "0.45": "#425E96"
+                            }
+                        },
+                        "lineWidth": 2.885164254178575,
+                        "lineJoin": "round"
+                    }
+                ],
+                "pathMarkers": {
+                    "markerEnd": {
+                        "type": "PATH",
+                        "units": {
+                            "type": "STROKE_WIDTH",
+                            "scale": 1
+                        },
+                        "orient": {
+                            "type": "CLIPPED_CHORD"
+                        },
+                        "clipDistance": 4,
+                        "name": "arrow",
+                        "relativeTransform": {
+                            "translate": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "rotate": 0,
+                            "skewX": 0,
+                            "scale": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        "path": {
+                            "type": "SPLINE",
+                            "spline": {
+                                "points": [
+                                    {
+                                        "x": 0,
+                                        "y": 0,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": -2.5,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": 2.5,
+                                        "isEndPoint": true
+                                    }
+                                ],
+                                "closed": true
+                            }
+                        },
+                        "pathStyles": [
+                            {
+                                "type": "FILL",
+                                "fillStyle": "context-stroke-flat"
+                            }
+                        ]
+                    }
+                },
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "de18c806-43a0-4ae3-a178-e39bc9b3682b",
+                    "order": "7"
+                }
+            },
+            "1a04559d-2cfe-4f90-a48b-f39b1ada0076": {
+                "type": "FIGURE_OBJECT",
+                "id": "1a04559d-2cfe-4f90-a48b-f39b1ada0076",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 66.6879824407333,
+                        "y": 0.8055643012316436
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "opacity": 1,
+                "path": {
+                    "type": "POLY_LINE",
+                    "points": [
+                        {
+                            "x": -38.41373220429473,
+                            "y": 82.45903101058441
+                        },
+                        {
+                            "x": -18.690351048205073,
+                            "y": -12.571805468756017
+                        },
+                        {
+                            "x": 38.41373220429484,
+                            "y": -82.45903101058441
+                        }
+                    ],
+                    "closed": false
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "transparent"
+                    },
+                    {
+                        "type": "STROKE",
+                        "strokeStyle": {
+                            "units": "PATH_LENGTH",
+                            "stops": {
+                                "0": "#425E9600",
+                                "1": "#425E96",
+                                "0.45": "#425E96"
+                            }
+                        },
+                        "lineWidth": 2.885164254178575,
+                        "lineJoin": "round"
+                    }
+                ],
+                "pathSmoothing": {
+                    "type": "CATMULL_SMOOTHING",
+                    "smoothing": 0.2
+                },
+                "pathMarkers": {
+                    "markerEnd": {
+                        "type": "PATH",
+                        "units": {
+                            "type": "STROKE_WIDTH",
+                            "scale": 1
+                        },
+                        "orient": {
+                            "type": "CLIPPED_CHORD"
+                        },
+                        "clipDistance": 4,
+                        "name": "arrow",
+                        "relativeTransform": {
+                            "translate": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "rotate": 0,
+                            "skewX": 0,
+                            "scale": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        "path": {
+                            "type": "SPLINE",
+                            "spline": {
+                                "points": [
+                                    {
+                                        "x": 0,
+                                        "y": 0,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": -2.5,
+                                        "isEndPoint": true
+                                    },
+                                    {
+                                        "x": -5,
+                                        "y": 2.5,
+                                        "isEndPoint": true
+                                    }
+                                ],
+                                "closed": true
+                            }
+                        },
+                        "pathStyles": [
+                            {
+                                "type": "FILL",
+                                "fillStyle": "context-stroke-flat"
+                            }
+                        ]
+                    }
+                },
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "3"
+                }
+            },
+            "09364fbc-597b-4599-ad73-1341b3338edf": {
+                "type": "FIGURE_OBJECT",
+                "id": "09364fbc-597b-4599-ad73-1341b3338edf",
+                "name": "Sun",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -161.30110176443637,
+                        "y": -84.49853437052091
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.28574479539046876,
+                        "y": 0.28574479539046876
+                    }
+                },
+                "opacity": 0.8,
+                "image": {
+                    "url": "https://icons.biorender.com/biorender/5a8d9f5401940b0014c66174/20180221163405/image/sun.png",
+                    "fallbackUrl": "https://res.cloudinary.com/dlcjuc3ej/image/upload/v1519230845/iuyu8equdlepgyvbeh6c.svg#/keystone/api/icons/5a8d9f5401940b0014c66174/20180221163405/image/sun.svg",
+                    "size": {
+                        "x": 350,
+                        "y": 350
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5a8d9f5401940b0014c66174",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "75"
+                }
+            },
+            "f1f317a0-9c71-4822-9b60-97f75685b4d4": {
+                "type": "FIGURE_OBJECT",
+                "id": "f1f317a0-9c71-4822-9b60-97f75685b4d4",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 9.44765681431185,
+                        "y": 180.7213539361516
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "opacity": 1,
+                "source": {
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "8"
+                }
+            },
+            "b949a8cc-bc09-485d-a89b-913a1a8ed843": {
+                "type": "FIGURE_OBJECT",
+                "id": "b949a8cc-bc09-485d-a89b-913a1a8ed843",
+                "name": "Tree (coniferous)",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -5.348693704328274,
+                        "y": -9.314497340948613
+                    },
+                    "rotate": 1.2217304763960308e-16,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.30242666886497543,
+                        "y": 0.30242666886497543
+                    }
+                },
+                "opacity": 0.96,
+                "image": {
+                    "url": "https://icons.biorender.com/biorender/5afde9c5778f080014346a8f/20180517204619/image/tree-coniferous.png",
+                    "fallbackUrl": "https://res.cloudinary.com/dlcjuc3ej/image/upload/v1526589979/gwgn3po3kryq6wbdyuot.svg#/keystone/api/icons/5afde9c5778f080014346a8f/20180517204619/image/tree-coniferous.svg",
+                    "size": {
+                        "x": 267,
+                        "y": 354
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5afde9c5778f080014346a8f",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "f1f317a0-9c71-4822-9b60-97f75685b4d4",
+                    "order": "2"
+                }
+            },
+            "bf20be45-1cb5-44e3-9885-a59c53888ab8": {
+                "type": "FIGURE_OBJECT",
+                "id": "bf20be45-1cb5-44e3-9885-a59c53888ab8",
+                "name": "Lake (side view)",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -1.376103016918418e-14,
+                        "y": 70.4371249536849
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 0.33415108866342125,
+                        "y": 0.33415108866342125
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.biorender.com/biorender/5b5a4d550bb8280014d9fa7b/lake-side-view.png",
+                    "fallbackUrl": "https://res.cloudinary.com/dlcjuc3ej/image/upload/v1532644691/hfrpllbinkpngssmflnn.svg#/keystone/api/icons/5b5a4d550bb8280014d9fa7b/lake-side-view.svg",
+                    "size": {
+                        "x": 719,
+                        "y": 187
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5b5a33a354d92500147c2a23",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "f1f317a0-9c71-4822-9b60-97f75685b4d4",
+                    "order": "5"
+                }
+            },
+            "90f65768-408e-4c97-b6fd-3a16c838d286": {
+                "type": "FIGURE_OBJECT",
+                "id": "90f65768-408e-4c97-b6fd-3a16c838d286",
+                "name": "Tree (coniferous, withering)",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 28.98154022406802,
+                        "y": -28.732470331430033
+                    },
+                    "rotate": 1.2217304763960305e-16,
+                    "skewX": -1.4824370392455855e-32,
+                    "scale": {
+                        "x": 0.455923633826781,
+                        "y": 0.45592363382678097
+                    }
+                },
+                "opacity": 1,
+                "image": {
+                    "url": "https://icons.biorender.com/biorender/5b31556fb3adf00014fb17bf/tree-coniferous-withering.png",
+                    "fallbackUrl": "https://res.cloudinary.com/dlcjuc3ej/image/upload/v1529959788/pa8dbckufcscsavigxl4.svg#/keystone/api/icons/5b31556fb3adf00014fb17bf/tree-coniferous-withering.svg",
+                    "size": {
+                        "x": 135,
+                        "y": 320
+                    },
+                    "isPremium": false
+                },
+                "source": {
+                    "id": "5b315525b3adf00014fb17b9",
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "f1f317a0-9c71-4822-9b60-97f75685b4d4",
+                    "order": "7"
+                }
+            },
+            "38fa34b1-90d0-4d2c-9420-90577a8dbc8f": {
+                "type": "FIGURE_OBJECT",
+                "id": "38fa34b1-90d0-4d2c-9420-90577a8dbc8f",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 175.49390279113965,
+                        "y": -69.65921800227412
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "opacity": 1,
+                "source": {
+                    "type": "ASSETS"
+                },
+                "pathStyles": [
+                    {
+                        "type": "FILL",
+                        "fillStyle": "rgb(0,0,0)"
+                    }
+                ],
+                "isLocked": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "1"
+                }
+            },
+            "b79fb3d3-d982-4df5-b4fd-88079cb14645": {
+                "id": "b79fb3d3-d982-4df5-b4fd-88079cb14645",
+                "name": "Liquid (symbol)",
+                "displayName": "",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -5.543329121528675,
+                        "y": 22.88327030552067
+                    },
+                    "rotate": 1.5707963267948966,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "image": {
+                    "url": "https://icons.cdn.biorender.com/biorender/63c968d6bf6f490021133e8d/63c96876bf6f490021133e8c.png",
+                    "isPremium": false,
+                    "isOrgIcon": false,
+                    "size": {
+                        "x": 100,
+                        "y": 64.75
+                    },
+                    "fallbackUrl": "sources/icons/63c968d6bf6f490021133e8d/63c96876bf6f490021133e8c.svg"
+                },
+                "source": {
+                    "id": "63c96876bf6f490021133e8c",
+                    "version": "20230119155852",
+                    "type": "ASSETS"
+                },
+                "isPremium": false,
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "95"
+                },
+                "opacity": 0.3,
+                "styles": {
+                    "editable": [
+                        {
+                            "monochromeTargetColor": "#909090",
+                            "styleName": "FILL"
+                        },
+                        {
+                            "monochromeTargetColor": "#909090",
+                            "styleName": "STROKE",
+                            "color": "#7f7f7f"
+                        }
+                    ]
+                }
+            },
+            "5efd3830-4e55-47ed-a882-107f5c463b46": {
+                "id": "5efd3830-4e55-47ed-a882-107f5c463b46",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.00046663026245141737,
+                        "y": -194.86273991766535
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "text": {
+                    "textData": {
+                        "lineSpacing": "normal",
+                        "alignment": "center",
+                        "verticalAlign": "TOP",
+                        "lines": [
+                            {
+                                "runs": [
+                                    {
+                                        "style": {
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 17.95213313711113,
+                                            "color": "rgba(35, 70, 115, 1)",
+                                            "fontWeight": "bold",
+                                            "fontStyle": "italic",
+                                            "decoration": "none",
+                                            "script": "none"
+                                        },
+                                        "range": [
+                                            0,
+                                            0
+                                        ]
+                                    },
+                                    {
+                                        "style": {
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 17.95213313711113,
+                                            "color": "rgba(35, 70, 115, 1)",
+                                            "fontWeight": "bold",
+                                            "fontStyle": "italic",
+                                            "decoration": "none",
+                                            "script": "none"
+                                        },
+                                        "range": [
+                                            1,
+                                            11
+                                        ]
+                                    }
+                                ],
+                                "text": "Condensation",
+                                "baseStyle": {
+                                    "fontFamily": "Roboto",
+                                    "fontSize": 17.95213313711113,
+                                    "color": "rgba(35, 70, 115, 1)",
+                                    "fontWeight": "bold",
+                                    "fontStyle": "italic",
+                                    "decoration": "none",
+                                    "script": "none"
+                                }
+                            }
+                        ],
+                        "_lastCaretLocation": {
+                            "lineIndex": 0,
+                            "runIndex": -1,
+                            "charIndex": -1,
+                            "endOfLine": true
+                        }
+                    },
+                    "format": "BETTER_TEXT",
+                    "size": {
+                        "x": 126.02914776822777,
+                        "y": 21.000000000000004
+                    },
+                    "targetSize": {
+                        "x": 126.02914776822777,
+                        "y": 21.000000000000004
+                    }
+                },
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "97"
+                }
+            },
+            "e13b4737-d7af-42c1-a166-c6dc02691805": {
+                "id": "e13b4737-d7af-42c1-a166-c6dc02691805",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -0.0004666302624540819,
+                        "y": -41.33780365738164
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "text": {
+                    "textData": {
+                        "lineSpacing": "normal",
+                        "alignment": "center",
+                        "verticalAlign": "TOP",
+                        "lines": [
+                            {
+                                "runs": [
+                                    {
+                                        "style": {
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 17.95213313711113,
+                                            "color": "rgba(35, 70, 115, 1)",
+                                            "fontWeight": "bold",
+                                            "fontStyle": "italic",
+                                            "decoration": "none",
+                                            "script": "none"
+                                        },
+                                        "range": [
+                                            0,
+                                            12
+                                        ]
+                                    }
+                                ],
+                                "text": "Transpiration"
+                            }
+                        ],
+                        "_lastCaretLocation": {
+                            "lineIndex": 0,
+                            "runIndex": -1,
+                            "charIndex": -1,
+                            "endOfLine": true
+                        }
+                    },
+                    "format": "BETTER_TEXT",
+                    "size": {
+                        "x": 136.6175199234287,
+                        "y": 21.000000000000004
+                    },
+                    "targetSize": {
+                        "x": 136.6175199234287,
+                        "y": 21.000000000000004
+                    }
+                },
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "98"
+                }
+            },
+            "12c4d04f-4e74-4b1c-a7b0-3b285b03f020": {
+                "id": "12c4d04f-4e74-4b1c-a7b0-3b285b03f020",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 300.8946923424626,
+                        "y": -41.33780365738164
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "text": {
+                    "textData": {
+                        "lineSpacing": "normal",
+                        "alignment": "left",
+                        "verticalAlign": "TOP",
+                        "lines": [
+                            {
+                                "runs": [
+                                    {
+                                        "style": {
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 17.95213313711113,
+                                            "color": "rgba(35, 70, 115, 1)",
+                                            "fontWeight": "bold",
+                                            "fontStyle": "italic",
+                                            "decoration": "none",
+                                            "script": "none"
+                                        },
+                                        "range": [
+                                            0,
+                                            12
+                                        ]
+                                    }
+                                ],
+                                "text": "Precipitation"
+                            }
+                        ],
+                        "_lastCaretLocation": {
+                            "lineIndex": 0,
+                            "runIndex": -1,
+                            "charIndex": -1,
+                            "endOfLine": true
+                        }
+                    },
+                    "format": "BETTER_TEXT",
+                    "size": {
+                        "x": 107.0250244140625,
+                        "y": 21.000000000000004
+                    },
+                    "targetSize": {
+                        "x": 107.0250244140625,
+                        "y": 21.000000000000004
+                    }
+                },
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "99"
+                }
+            },
+            "b918cc33-e92c-4d94-9ded-13074dc6b406": {
+                "id": "b918cc33-e92c-4d94-9ded-13074dc6b406",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": 111.99161712247285,
+                        "y": 166.54123690406186
+                    },
+                    "rotate": 0
+                },
+                "text": {
+                    "textData": {
+                        "lineSpacing": "normal",
+                        "alignment": "right",
+                        "verticalAlign": "TOP",
+                        "lines": [
+                            {
+                                "runs": [
+                                    {
+                                        "style": {
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 17.95213313711113,
+                                            "color": "rgba(35, 70, 115, 1)",
+                                            "fontWeight": "bold",
+                                            "fontStyle": "italic",
+                                            "decoration": "none",
+                                            "script": "none"
+                                        },
+                                        "range": [
+                                            0,
+                                            6
+                                        ]
+                                    }
+                                ],
+                                "text": "Run-off"
+                            }
+                        ],
+                        "_lastCaretLocation": {
+                            "lineIndex": 0,
+                            "runIndex": -1,
+                            "charIndex": -1,
+                            "endOfLine": true
+                        }
+                    },
+                    "format": "BETTER_TEXT",
+                    "size": {
+                        "x": 68.11539055804128,
+                        "y": 21
+                    },
+                    "targetSize": {
+                        "x": 68.11539055804128,
+                        "y": 21
+                    }
+                },
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "997"
+                }
+            },
+            "30992976-d146-44df-851a-286bad0c8124": {
+                "id": "30992976-d146-44df-851a-286bad0c8124",
+                "type": "FIGURE_OBJECT",
+                "relativeTransform": {
+                    "translate": {
+                        "x": -260.948556136065,
+                        "y": 39.12572314475766
+                    },
+                    "rotate": 0,
+                    "skewX": 0,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "text": {
+                    "textData": {
+                        "lineSpacing": "normal",
+                        "alignment": "right",
+                        "verticalAlign": "TOP",
+                        "lines": [
+                            {
+                                "runs": [
+                                    {
+                                        "style": {
+                                            "fontFamily": "Roboto",
+                                            "fontSize": 17.95213313711113,
+                                            "color": "rgba(35, 70, 115, 1)",
+                                            "fontWeight": "bold",
+                                            "fontStyle": "italic",
+                                            "decoration": "none",
+                                            "script": "none"
+                                        },
+                                        "range": [
+                                            0,
+                                            10
+                                        ]
+                                    }
+                                ],
+                                "text": "Evaporation"
+                            }
+                        ],
+                        "_lastCaretLocation": {
+                            "lineIndex": 0,
+                            "runIndex": -1,
+                            "charIndex": -1,
+                            "endOfLine": true
+                        }
+                    },
+                    "format": "BETTER_TEXT",
+                    "size": {
+                        "x": 99.28587341308594,
+                        "y": 21
+                    },
+                    "targetSize": {
+                        "x": 68.11539055804128,
+                        "y": 21
+                    }
+                },
+                "parent": {
+                    "type": "CHILD",
+                    "parentId": "7fe3ca7f-ef4d-43ce-8de6-c89a8e4bcdc0",
+                    "order": "998"
+                }
+            }
+        }
+    },
+    "migrationVersion": 46,
+    "title": "Untitled"
+}
