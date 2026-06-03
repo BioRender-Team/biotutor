@@ -409,16 +409,6 @@ export function EditPage() {
         className={`${styles.imageContainer} ${mode === 'draw' ? styles.drawMode : ''}`}
         onMouseDown={handleContainerMouseDown}
       >
-        <div className={styles.imageToolbar} data-nodraw>
-          <button
-            className={`${styles.toolbarBtn} ${mode === 'select' ? styles.toolbarBtnActive : ''}`}
-            onClick={() => setMode('select')}
-          >↖ Select</button>
-          <button
-            className={`${styles.toolbarBtn} ${mode === 'draw' ? styles.toolbarBtnActive : ''}`}
-            onClick={() => setMode('draw')}
-          >⬚ Draw</button>
-        </div>
         <img
           ref={imgRef}
           src={`/illustrations/${name}.png`}
@@ -433,6 +423,21 @@ export function EditPage() {
           const ox = freshImg.left - containerRect.left
           const oy = freshImg.top - containerRect.top
           return <>
+            <div
+              data-nodraw
+              className={styles.imageToolbar}
+              style={{ left: ox, top: oy - 40 }}
+            >
+              <button
+                className={`${styles.toolbarBtn} ${mode === 'select' ? styles.toolbarBtnActive : ''}`}
+                onClick={() => setMode('select')}
+              >↖ Select</button>
+              <button
+                className={`${styles.toolbarBtn} ${mode === 'draw' ? styles.toolbarBtnActive : ''}`}
+                onClick={() => setMode('draw')}
+              >⬚ Draw</button>
+            </div>
+
             {items.map((item, i) => {
               const { x, y, width, height } = item.bbox
               const pxLeft = ox + x * freshImg.width
