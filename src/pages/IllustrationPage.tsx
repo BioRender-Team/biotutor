@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { useState, useRef, useLayoutEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import { HitTarget } from '../components/HitTarget'
 import styles from './IllustrationPage.module.css'
+import headerStyles from '../components/Header.module.css'
 
 type BoundingBox = { x: number; y: number; width: number; height: number }
 type Item = { label: string; bbox: BoundingBox }
@@ -65,21 +67,22 @@ export function IllustrationPage() {
 
   const rect = imgRect
 
+  const headerSlot = document.getElementById('header-audience-slot')
+
   return (
     <div className={styles.page}>
       {loading && <div className={styles.spinner} />}
-      {audiences.length > 1 && (
-        <div className={styles.audiencePicker}>
+      {headerSlot && audiences.length > 1 && createPortal(
+        <select
+          className={headerStyles.nav}
+          value={audience}
+          onChange={e => setAudience(e.target.value)}
+        >
           {audiences.map(a => (
-            <button
-              key={a}
-              className={`${styles.audienceBtn} ${audience === a ? styles.audienceBtnActive : ''}`}
-              onClick={() => setAudience(a)}
-            >
-              {formatAudience(a)}
-            </button>
+            <option key={a} value={a}>{formatAudience(a)}</option>
           ))}
-        </div>
+        </select>,
+        headerSlot,
       )}
       <div className={styles.imageContainer}>
         <img

@@ -17,6 +17,7 @@ export function Header() {
         <img src="/biotutor-logo.png" alt="BioTutor" className={styles.logo} />
       </Link>
       <div className={styles.right}>
+        <div id="header-audience-slot" />
         <select
           className={styles.nav}
           value=""
