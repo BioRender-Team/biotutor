@@ -72,26 +72,26 @@ body {
   border-color: transparent;
 }
 .tippy-box[data-theme~='biotutor'][data-placement^='right'] > .tippy-arrow::after {
-  border-width: 6px 6px 6px 0;
+  border-width: 7px 7px 7px 0;
   border-right-color: #ffffff;
-  left: -4px;
-  top: 2px;
+  left: -6px;
+  top: 1px;
 }
 .tippy-box[data-theme~='biotutor'][data-placement^='left'] > .tippy-arrow::after {
-  border-width: 6px 0 6px 6px;
+  border-width: 7px 0 7px 7px;
   border-left-color: #ffffff;
-  right: -4px;
-  top: 2px;
+  right: -6px;
+  top: 1px;
 }
 .tippy-box[data-theme~='biotutor'][data-placement^='bottom'] > .tippy-arrow::after {
-  border-width: 0 6px 6px;
+  border-width: 0 7px 7px;
   border-bottom-color: #ffffff;
-  top: -4px;
-  left: 2px;
+  top: -6px;
+  left: 1px;
 }
 .tippy-box[data-theme~='biotutor'][data-placement^='top'] > .tippy-arrow::after {
-  border-width: 6px 6px 0;
+  border-width: 7px 7px 0;
   border-top-color: #ffffff;
-  bottom: -4px;
-  left: 2px;
+  bottom: -6px;
+  left: 1px;
 }
