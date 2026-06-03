@@ -20,7 +20,7 @@ export function ToastProvider() {
 
   useEffect(() => {
     if (!toast) return
-    const t = setTimeout(() => setToast(null), 4000)
+    const t = setTimeout(() => setToast(null), 20000)
     return () => clearTimeout(t)
   }, [toast?.id])
 
