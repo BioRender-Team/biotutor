@@ -28,6 +28,11 @@ interface HitTargetProps {
   children?: React.ReactNode
   onMouseDown?: (e: React.MouseEvent) => void
   tippyDisabled?: boolean
+  editable?: boolean
+  editedDescription?: string
+  onDescriptionChange?: (text: string) => void
+  approved?: boolean
+  onApprove?: () => void
   'data-nodraw'?: boolean
 }
 
@@ -44,12 +49,25 @@ export function HitTarget({
   children,
   onMouseDown,
   tippyDisabled,
+  editable = false,
+  editedDescription,
+  onDescriptionChange,
+  approved = false,
+  onApprove,
   ...rest
 }: HitTargetProps) {
   const { x, y, width, height } = bbox
   const ox = imgRect.left - containerRect.left
   const oy = imgRect.top - containerRect.top
   const showCitation = /medical/i.test(audience) && description && safeUrl(description.source?.url)
+
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  function autoResizeTextarea(el: HTMLTextAreaElement) {
+    el.style.height = 'auto'
+    el.style.height = `${el.scrollHeight}px`
+  }
+
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mouseRef = useRef<{ x: number; y: number } | null>(null)
@@ -117,19 +135,49 @@ export function HitTarget({
   return (
     <Tippy
       content={
-        <div className={styles.tooltipContent}>
+        <div className={`${styles.tooltipContent} ${editable ? styles.tooltipContentEditable : ''}`}>
           <div className={styles.tooltipHeader}>{label}</div>
           {description ? (
-            <div className={styles.tooltipBody}>
-              {description.description}
-              {showCitation && (
-                <a className={styles.citationRef} href={safeUrl(description.source.url)} target="_blank" rel="noreferrer">
-                  [{index + 1}]
-                </a>
-              )}
-            </div>
+            editable ? (
+              <textarea
+                ref={textareaRef}
+                className={styles.tooltipTextarea}
+                value={editedDescription ?? description.description}
+                onChange={e => { onDescriptionChange?.(e.target.value); autoResizeTextarea(e.target) }}
+                onClick={e => e.stopPropagation()}
+                onMouseDown={e => e.stopPropagation()}
+              />
+            ) : (
+              <div className={styles.tooltipBody}>
+                {description.description}
+                {showCitation && (
+                  <a className={styles.citationRef} href={safeUrl(description.source.url)} target="_blank" rel="noreferrer">
+                    [{index + 1}]
+                  </a>
+                )}
+              </div>
+            )
           ) : (
             <div className={styles.tooltipEmpty}>No description yet</div>
+          )}
+          {editable && description && (
+            approved ? (
+              <div className={styles.approvalBadge}>
+                <img className={styles.approverPhoto} src="/team/shiz-aoki.jpeg" alt="Shiz Aoki" />
+                <span className={styles.approverName}>Shiz Aoki</span>
+                <img className={styles.approvalIcon} src="/verified-symbol-icon.svg" alt="Verified" />
+              </div>
+            ) : (
+              <div className={styles.approveBar}>
+                <button
+                  className={styles.approveBtn}
+                  onClick={e => { e.stopPropagation(); onApprove?.() }}
+                  onMouseDown={e => e.stopPropagation()}
+                >
+                  Approve
+                </button>
+              </div>
+            )
           )}
         </div>
       }
@@ -142,6 +190,11 @@ export function HitTarget({
       trigger="click"
       hideOnClick={true}
       disabled={tippyDisabled}
+      onMount={() => {
+        requestAnimationFrame(() => {
+          if (textareaRef.current) autoResizeTextarea(textareaRef.current)
+        })
+      }}
     >
       <div
         {...rest}

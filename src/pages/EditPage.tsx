@@ -51,6 +51,8 @@ export function EditPage() {
   const [summarizing, setSummarizing] = useState(false)
   const [mode, setMode] = useState<Mode>('select')
   const [editingLabelIndex, setEditingLabelIndex] = useState<number | null>(null)
+  const [editedDescriptions, setEditedDescriptions] = useState<Record<string, string>>({})
+  const [approvals, setApprovals] = useState<Record<string, boolean>>({})
   const [drawing, setDrawing] = useState<BoundingBox | null>(null)
   const [pendingBox, setPendingBox] = useState<BoundingBox | null>(null)
   const [pendingLabel, setPendingLabel] = useState('')
@@ -181,6 +183,26 @@ export function EditPage() {
   }, [updateRect])
 
   useEffect(() => {
+    if (!name) return
+    try {
+      setEditedDescriptions(JSON.parse(localStorage.getItem(`biotutor_edits_${name}`) ?? '{}'))
+      setApprovals(JSON.parse(localStorage.getItem(`biotutor_approvals_${name}`) ?? '{}'))
+    } catch {}
+  }, [name])
+
+  function saveEdit(label: string, text: string) {
+    const updated = { ...editedDescriptions, [label]: text }
+    setEditedDescriptions(updated)
+    if (name) localStorage.setItem(`biotutor_edits_${name}`, JSON.stringify(updated))
+  }
+
+  function approveLabel(label: string) {
+    const updated = { ...approvals, [label]: true }
+    setApprovals(updated)
+    if (name) localStorage.setItem(`biotutor_approvals_${name}`, JSON.stringify(updated))
+  }
+
+  useEffect(() => {
     if (imgRef.current?.complete) summarize()
   }, [model]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -297,6 +319,11 @@ export function EditPage() {
                 targetClassName={mode === 'select' ? styles.selectable : ''}
                 tippyDisabled={mode === 'draw'}
                 onMouseDown={(e) => handleItemMouseDown(e, i)}
+                editable={!!descriptions[item.label]}
+                editedDescription={editedDescriptions[item.label]}
+                onDescriptionChange={(text) => saveEdit(item.label, text)}
+                approved={!!approvals[item.label]}
+                onApprove={() => approveLabel(item.label)}
               >
                 {editingLabelIndex === i ? (
                   <input
@@ -523,7 +550,12 @@ export function EditPage() {
             try {
               const descList = items.map((item) => {
                 const d = descriptions[item.label]
-                return { label: item.label, ...(d ?? { description: '', source: { title: '', url: '' } }) }
+                const editedText = editedDescriptions[item.label]
+                return {
+                  label: item.label,
+                  description: editedText ?? d?.description ?? '',
+                  source: d?.source ?? { title: '', url: '' },
+                }
               })
               const r = await fetch('/api/save', {
                 method: 'POST',
