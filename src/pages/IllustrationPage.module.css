@@ -47,6 +47,24 @@
   display: flex;
 }
 
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--color-green-200);
+  border-top-color: var(--color-green-600);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  z-index: 10;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 .image {
   max-width: 100%;
   max-height: 100%;

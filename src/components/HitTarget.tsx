@@ -6,6 +6,8 @@ type BoundingBox = { x: number; y: number; width: number; height: number }
 type Description = { description: string; source: { title: string; url: string } }
 type Particle = { x: number; y: number; r: number; phase: number; speed: number }
 
+const PARTICLES_ENABLED = false
+
 function safeUrl(url: string): string | undefined {
   try {
     const p = new URL(url)
@@ -156,11 +158,11 @@ export function HitTarget({
           height: ph,
         }}
         onMouseDown={onMouseDown}
-        onMouseEnter={bordered ? undefined : handleMouseEnter}
-        onMouseMove={bordered ? undefined : handleMouseMove}
-        onMouseLeave={bordered ? undefined : handleMouseLeave}
+        onMouseEnter={bordered || !PARTICLES_ENABLED ? undefined : handleMouseEnter}
+        onMouseMove={bordered || !PARTICLES_ENABLED ? undefined : handleMouseMove}
+        onMouseLeave={bordered || !PARTICLES_ENABLED ? undefined : handleMouseLeave}
       >
-        {!bordered && (
+        {!bordered && PARTICLES_ENABLED && (
           <canvas
             ref={canvasRef}
             className={styles.particleCanvas}

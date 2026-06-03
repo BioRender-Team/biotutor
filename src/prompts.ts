@@ -79,7 +79,7 @@ Elementary / Middle School
 - Open with a relatable analogy — never restate the object name as a definition
 - Follow with one key fact
 - Close with why it matters to the bigger process
-- Maximum 10 words per description
+- Maximum 10 words per description [do not exceed this limit]
 - Use everyday vocabulary; define any new term immediately using analogy
 - Tone: warm, curious, second person where appropriate
 - One idea per sentence

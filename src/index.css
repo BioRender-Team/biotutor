@@ -39,10 +39,10 @@ body {
 
 /* BioTutor Tippy theme */
 .tippy-box[data-theme~='biotutor'] {
-  background-color: #1a2035;
-  border: 1px solid rgba(28, 108, 242, 0.3);
+  background-color: #ffffff;
+  border: 1px solid var(--color-green-600);
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(28, 108, 242, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   padding: 2px;
 }
 
@@ -51,21 +51,21 @@ body {
 }
 
 .tippy-box[data-theme~='biotutor'] > .tippy-arrow::before {
-  color: #1a2035;
+  color: #ffffff;
 }
 
 .tippy-box[data-theme~='biotutor'][data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: #1a2035;
+  border-right-color: #ffffff;
 }
 
 .tippy-box[data-theme~='biotutor'][data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: #1a2035;
+  border-left-color: #ffffff;
 }
 
 .tippy-box[data-theme~='biotutor'][data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: #1a2035;
+  border-bottom-color: #ffffff;
 }
 
 .tippy-box[data-theme~='biotutor'][data-placement^='top'] > .tippy-arrow::before {
-  border-top-color: #1a2035;
+  border-top-color: #ffffff;
 }

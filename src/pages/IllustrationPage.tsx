@@ -15,6 +15,7 @@ export function IllustrationPage() {
   const { name } = useParams<{ name: string }>()
   const [audiences, setAudiences] = useState<string[]>([])
   const [audience, setAudience] = useState('')
+  const [loading, setLoading] = useState(false)
   const [items, setItems] = useState<Item[]>([])
   const [descriptions, setDescriptions] = useState<Record<string, Description>>({})
   const imgRef = useRef<HTMLImageElement>(null)
@@ -47,6 +48,7 @@ export function IllustrationPage() {
 
   useLayoutEffect(() => {
     if (!name || !audience) return
+    setLoading(true)
     fetch(`/api/load?name=${encodeURIComponent(name)}&audience=${encodeURIComponent(audience)}`)
       .then(r => r.ok ? r.json() : null)
       .then(data => {
@@ -58,12 +60,14 @@ export function IllustrationPage() {
         if (imgRef.current) setImgRect(imgRef.current.getBoundingClientRect())
       })
       .catch(() => {})
+      .finally(() => setLoading(false))
   }, [name, audience])
 
   const rect = imgRect
 
   return (
     <div className={styles.page}>
+      {loading && <div className={styles.spinner} />}
       {audiences.length > 1 && (
         <div className={styles.audiencePicker}>
           {audiences.map(a => (
