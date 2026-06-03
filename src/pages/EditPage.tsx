@@ -470,7 +470,8 @@ export function EditPage() {
                   interactive={true}
                   arrow={true}
                   theme="biotutor"
-                  trigger={mode === 'select' ? 'click' : undefined}
+                  trigger="click"
+                  disabled={mode === 'draw'}
                   hideOnClick={true}
                 >
                   <div
