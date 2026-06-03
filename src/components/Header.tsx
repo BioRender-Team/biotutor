@@ -6,9 +6,17 @@ const illustrations = Object.keys(modules).map((path) =>
   path.replace('/public/illustrations/', '').replace('.png', ''),
 )
 
+const LABELS: Record<string, string> = {
+  'car-t':   'CAR-T',
+  'water':   'Water 2',
+  'water2':  'Water (orig)',
+  'water3':  'Water 3',
+  'soybean': 'Soybean',
+  'tomato':  'Tomato',
+}
+
 function formatLabel(name: string) {
-  // All-caps if every word is 1-4 chars or contains a hyphen (acronyms like CAR-T, DNA)
-  if (name.includes('-')) return name.toUpperCase()
+  if (LABELS[name]) return LABELS[name]
   return name.charAt(0).toUpperCase() + name.slice(1)
 }
 
