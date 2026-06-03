@@ -1,10 +1,10 @@
-import { useState, useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import Tippy from '@tippyjs/react'
 import styles from './HitTarget.module.css'
 
 type BoundingBox = { x: number; y: number; width: number; height: number }
 type Description = { description: string; source: { title: string; url: string } }
-type Sparkle = { id: number; x: number; y: number; size: number }
+type Particle = { x: number; y: number; r: number; phase: number; speed: number }
 
 function safeUrl(url: string): string | undefined {
   try {
@@ -21,11 +21,8 @@ interface HitTargetProps {
   containerRect: DOMRect
   description?: Description
   audience?: string
-  /** Show visible blue border (edit page style) */
   bordered?: boolean
-  /** Extra class(es) for the hit target div, e.g. for move/select mode styling */
   targetClassName?: string
-  /** Extra children inside the hit target div, e.g. resize handles */
   children?: React.ReactNode
   onMouseDown?: (e: React.MouseEvent) => void
   tippyDisabled?: boolean
@@ -52,21 +49,68 @@ export function HitTarget({
   const oy = imgRect.top - containerRect.top
   const showCitation = /medical/i.test(audience) && description && safeUrl(description.source?.url)
 
-  const [sparkles, setSparkles] = useState<Sparkle[]>([])
-  const lastSparkleRef = useRef(0)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const mouseRef = useRef<{ x: number; y: number } | null>(null)
+  const rafRef = useRef<number>(0)
+  const particlesRef = useRef<Particle[]>([])
+
+  function initParticles(w: number, h: number) {
+    particlesRef.current = Array.from({ length: 60 }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: 0.5 + Math.random() * 1.5,
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.4 + Math.random() * 1.2,
+    }))
+  }
+
+  function draw(ts: number) {
+    const canvas = canvasRef.current
+    const mouse = mouseRef.current
+    if (!canvas || !mouse) return
+    const ctx = canvas.getContext('2d')!
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    const sigma = Math.min(canvas.width, canvas.height) * 0.45
+
+    for (const p of particlesRef.current) {
+      const dist = Math.hypot(p.x - mouse.x, p.y - mouse.y)
+      const gaussian = Math.exp(-(dist * dist) / (2 * sigma * sigma))
+      const twinkle = 0.35 + 0.65 * Math.abs(Math.sin(ts * 0.001 * p.speed + p.phase))
+      const alpha = gaussian * twinkle * 0.55
+      if (alpha < 0.01) continue
+      ctx.beginPath()
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+      ctx.fillStyle = `rgba(140, 155, 170, ${alpha})`
+      ctx.fill()
+    }
+
+    rafRef.current = requestAnimationFrame(draw)
+  }
+
+  useEffect(() => () => cancelAnimationFrame(rafRef.current), [])
+
+  function handleMouseEnter(e: React.MouseEvent<HTMLDivElement>) {
+    const rect = e.currentTarget.getBoundingClientRect()
+    initParticles(rect.width, rect.height)
+    mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top }
+    rafRef.current = requestAnimationFrame(draw)
+  }
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const now = Date.now()
-    if (now - lastSparkleRef.current < 60) return
-    lastSparkleRef.current = now
     const rect = e.currentTarget.getBoundingClientRect()
-    const sx = e.clientX - rect.left
-    const sy = e.clientY - rect.top
-    const id = now + Math.random()
-    const size = 10 + Math.random() * 8
-    setSparkles(prev => [...prev.slice(-6), { id, x: sx, y: sy, size }])
-    setTimeout(() => setSparkles(prev => prev.filter(s => s.id !== id)), 700)
+    mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top }
   }
+
+  function handleMouseLeave() {
+    mouseRef.current = null
+    cancelAnimationFrame(rafRef.current)
+    const canvas = canvasRef.current
+    if (canvas) canvas.getContext('2d')?.clearRect(0, 0, canvas.width, canvas.height)
+  }
+
+  const pw = width * imgRect.width
+  const ph = height * imgRect.height
 
   return (
     <Tippy
@@ -108,19 +152,22 @@ export function HitTarget({
         style={{
           left: ox + x * imgRect.width,
           top: oy + y * imgRect.height,
-          width: width * imgRect.width,
-          height: height * imgRect.height,
+          width: pw,
+          height: ph,
         }}
         onMouseDown={onMouseDown}
+        onMouseEnter={bordered ? undefined : handleMouseEnter}
         onMouseMove={bordered ? undefined : handleMouseMove}
+        onMouseLeave={bordered ? undefined : handleMouseLeave}
       >
-        {!bordered && sparkles.map(s => (
-          <span
-            key={s.id}
-            className={styles.sparkle}
-            style={{ left: s.x, top: s.y, fontSize: s.size }}
-          >✦</span>
-        ))}
+        {!bordered && (
+          <canvas
+            ref={canvasRef}
+            className={styles.particleCanvas}
+            width={pw}
+            height={ph}
+          />
+        )}
         {children}
       </div>
     </Tippy>

@@ -12,7 +12,6 @@
 .hitTargetHoverable {
   border-color: transparent;
   cursor: pointer;
-  overflow: hidden;
 }
 
 .hitTargetHoverable:hover {
@@ -20,18 +19,11 @@
   border-color: transparent;
 }
 
-.sparkle {
+.particleCanvas {
   position: absolute;
-  color: var(--color-bright-blue-400);
+  inset: 0;
   pointer-events: none;
-  line-height: 1;
-  animation: sparkleAnim 0.7s ease-out forwards;
-}
-
-@keyframes sparkleAnim {
-  0%   { opacity: 1; transform: translate(-50%, -50%) scale(0.4); }
-  40%  { opacity: 1; transform: translate(-50%, calc(-50% - 8px)) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, calc(-50% - 18px)) scale(0.3); }
+  border-radius: 4px;
 }
 
 .tooltipContent {

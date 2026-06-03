@@ -27,16 +27,16 @@
 
 /* .hitTarget base styles live in HitTarget.module.css */
 
-.hitTarget.selectable {
+.selectable {
   cursor: move;
 }
 
-.hitTarget.selectable:hover {
+.selectable:hover {
   background: rgba(28, 108, 242, 0.1);
 }
 
-.hitTarget.selectable:hover .handle,
-.hitTarget.selectable:hover .deleteBtn {
+.selectable:hover .handle,
+.selectable:hover .deleteBtn {
   opacity: 1;
 }
 
@@ -168,7 +168,25 @@
   padding: 2px 5px;
   border-radius: 3px 3px 0 0;
   white-space: nowrap;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: text;
+  user-select: none;
+}
+
+.bboxLabelInput {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  background: #1C6CF2;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 5px;
+  border-radius: 3px 3px 0 0;
+  border: none;
+  outline: 2px solid #fff;
+  min-width: 60px;
+  width: max-content;
 }
 
 /* Tooltip styles live in HitTarget.module.css */
