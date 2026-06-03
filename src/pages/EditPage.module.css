@@ -125,34 +125,42 @@
   color: rgba(255,255,255,0.4);
 }
 
-/* Mode toggle */
-.modeToggle {
+/* Floating image toolbar */
+.imageToolbar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
   display: flex;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.modeBtn {
-  flex: 1;
-  padding: 6px 8px;
+.toolbarBtn {
+  padding: 6px 12px;
   font-size: 12px;
   font-weight: 500;
-  background: #fff;
+  background: transparent;
   color: #6b7280;
   border: none;
   cursor: pointer;
   transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
 }
 
-.modeBtn + .modeBtn {
-  border-left: 1px solid #d1d5db;
+.toolbarBtn + .toolbarBtn {
+  border-left: 1px solid #e5e7eb;
 }
 
-.modeBtnActive {
+.toolbarBtnActive {
   background: #1C6CF2;
   color: #fff;
 }
+
 
 .bboxLabel {
   position: absolute;
@@ -240,14 +248,6 @@
   border-color: #1a1a2e;
 }
 
-.buttonRow {
-  display: flex;
-  gap: 8px;
-}
-
-.buttonRow .button {
-  flex: 1;
-}
 
 .button {
   padding: 8px 12px;

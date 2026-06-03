@@ -206,8 +206,6 @@ export function EditPage() {
   const [prompt, setPrompt] = useState(DEFAULT_PROMPT)
   const [describePrompt, setDescribePrompt] = useState(DEFAULT_DESCRIBE_PROMPT)
   const [audience, setAudience] = useState('')
-  const [hasTestData, setHasTestData] = useState(false)
-  const [hasDescTestData, setHasDescTestData] = useState(false)
   const [descriptions, setDescriptions] = useState<Record<string, Description>>({})
   const [describing, setDescribing] = useState(false)
   const [publishing, setPublishing] = useState(false)
@@ -331,10 +329,6 @@ export function EditPage() {
     setPendingLabel('')
   }
 
-  useLayoutEffect(() => {
-    fetch(`/illustrations/${name}.result.json`, { method: 'HEAD' }).then((r) => setHasTestData(r.ok)).catch(() => {})
-    fetch(`/illustrations/${name}.descriptions.json`, { method: 'HEAD' }).then((r) => setHasDescTestData(r.ok)).catch(() => {})
-  }, [name])
   const imgRef = useRef<HTMLImageElement>(null)
   const [imgRect, setImgRect] = useState<DOMRect | null>(null)
 
@@ -415,6 +409,16 @@ export function EditPage() {
         className={`${styles.imageContainer} ${mode === 'draw' ? styles.drawMode : ''}`}
         onMouseDown={handleContainerMouseDown}
       >
+        <div className={styles.imageToolbar} data-nodraw>
+          <button
+            className={`${styles.toolbarBtn} ${mode === 'select' ? styles.toolbarBtnActive : ''}`}
+            onClick={() => setMode('select')}
+          >↖ Select</button>
+          <button
+            className={`${styles.toolbarBtn} ${mode === 'draw' ? styles.toolbarBtnActive : ''}`}
+            onClick={() => setMode('draw')}
+          >⬚ Draw</button>
+        </div>
         <img
           ref={imgRef}
           src={`/illustrations/${name}.png`}
@@ -540,41 +544,47 @@ export function EditPage() {
       </div>
 
       <div className={styles.sidebar}>
-        <div className={styles.modeToggle}>
-          <button
-            className={`${styles.modeBtn} ${mode === 'select' ? styles.modeBtnActive : ''}`}
-            onClick={() => setMode('select')}
-          >↖ Select</button>
-          <button
-            className={`${styles.modeBtn} ${mode === 'draw' ? styles.modeBtnActive : ''}`}
-            onClick={() => setMode('draw')}
-          >⬚ Draw</button>
-        </div>
 
+        {/* Model */}
         <select className={styles.select} value={model} onChange={(e) => setModel(e.target.value)}>
           {MODELS.map((m) => <option key={m.value} value={m.value}>{m.label}</option>)}
         </select>
 
+        {/* Figure Summary */}
+        <div className={styles.summaryLabel}>
+          {summarizing ? 'Summarizing figure…' : 'Figure summary'}
+        </div>
+        <textarea
+          className={styles.promptInput}
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
+          rows={3}
+          placeholder={summarizing ? 'Generating…' : 'Figure summary will appear here…'}
+          disabled={summarizing}
+        />
+
+        <div className={styles.divider} />
+
+        {/* Identify */}
         <textarea
           className={styles.promptInput}
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           rows={6}
         />
-
         <button
           className={styles.button}
           style={{ width: '100%' }}
           onClick={identify}
           disabled={loading || !prompt.trim()}
         >
-          {loading ? 'Identifying…' : 'Identify Key Players'}
+          {loading ? 'Identifying…' : 'Identify Key Figures'}
         </button>
 
         {items.length > 0 && (
           <details className={styles.accordion}>
             <summary className={styles.accordionSummary}>
-              Key Players ({items.length})
+              Key Figures ({items.length})
             </summary>
             <ul className={styles.list}>
               {items.map((item, i) => (
@@ -592,18 +602,7 @@ export function EditPage() {
 
         <div className={styles.divider} />
 
-        <div className={styles.summaryLabel}>
-          {summarizing ? 'Summarizing figure…' : 'Figure summary'}
-        </div>
-        <textarea
-          className={styles.promptInput}
-          value={summary}
-          onChange={(e) => setSummary(e.target.value)}
-          rows={3}
-          placeholder={summarizing ? 'Generating…' : 'Figure summary will appear here…'}
-          disabled={summarizing}
-        />
-
+        {/* Describe */}
         <textarea
           className={styles.promptInput}
           value={describePrompt}
@@ -667,48 +666,10 @@ export function EditPage() {
 
         <div className={styles.spacer} />
 
-        <div className={styles.buttonRow}>
-        {(hasTestData || hasDescTestData) && (
-          <button
-            className={styles.saveButton}
-            style={{ flex: 1 }}
-            onClick={async () => {
-              if (hasTestData) {
-                const r = await fetch(`/illustrations/${name}.result.json`)
-                const data = await r.json()
-                setItems(data.items ?? [])
-                updateRect()
-              }
-              if (hasDescTestData) {
-                const r = await fetch(`/illustrations/${name}.descriptions.json`)
-                const data = await r.json()
-                const map: Record<string, Description> = {}
-                for (const d of data.descriptions ?? []) map[d.label] = { description: d.description, source: d.source ?? { title: '', url: '' } }
-                setDescriptions(map)
-              }
-            }}
-          >
-            Load Test Data
-          </button>
-        )}
-        <button
-          className={styles.saveButton}
-          style={{ flex: 1 }}
-          onClick={() => {
-            const content = `# Identify Prompt\n${prompt}\n\n# Describe Prompt\n${describePrompt}`
-            const blob = new Blob([content], { type: 'text/plain' })
-            const a = document.createElement('a')
-            a.href = URL.createObjectURL(blob)
-            a.download = `${name}-prompts.txt`
-            a.click()
-            URL.revokeObjectURL(a.href)
-          }}
-        >
-          Save Prompts
-        </button>
+        <div className={styles.divider} />
+
         <button
           className={styles.publishButton}
-          style={{ flex: 1 }}
           disabled={publishing || items.length === 0 || Object.keys(descriptions).length === 0}
           onClick={async () => {
             setPublishing(true)
@@ -729,7 +690,6 @@ export function EditPage() {
         >
           {publishing ? 'Publishing…' : 'Publish'}
         </button>
-        </div>
       </div>
     </div>
   )
