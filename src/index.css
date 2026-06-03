@@ -50,22 +50,48 @@ body {
   padding: 10px 12px;
 }
 
-.tippy-box[data-theme~='biotutor'] > .tippy-arrow::before {
-  color: #ffffff;
-}
-
+/* Arrow ::before = green border triangle */
 .tippy-box[data-theme~='biotutor'][data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: #ffffff;
+  border-right-color: var(--color-green-600);
 }
-
 .tippy-box[data-theme~='biotutor'][data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: #ffffff;
+  border-left-color: var(--color-green-600);
 }
-
 .tippy-box[data-theme~='biotutor'][data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: #ffffff;
+  border-bottom-color: var(--color-green-600);
+}
+.tippy-box[data-theme~='biotutor'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: var(--color-green-600);
 }
 
-.tippy-box[data-theme~='biotutor'][data-placement^='top'] > .tippy-arrow::before {
+/* Arrow ::after = white fill triangle, 1px inset to show green border */
+.tippy-box[data-theme~='biotutor'] > .tippy-arrow::after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+}
+.tippy-box[data-theme~='biotutor'][data-placement^='right'] > .tippy-arrow::after {
+  border-width: 6px 6px 6px 0;
+  border-right-color: #ffffff;
+  left: -4px;
+  top: 2px;
+}
+.tippy-box[data-theme~='biotutor'][data-placement^='left'] > .tippy-arrow::after {
+  border-width: 6px 0 6px 6px;
+  border-left-color: #ffffff;
+  right: -4px;
+  top: 2px;
+}
+.tippy-box[data-theme~='biotutor'][data-placement^='bottom'] > .tippy-arrow::after {
+  border-width: 0 6px 6px;
+  border-bottom-color: #ffffff;
+  top: -4px;
+  left: 2px;
+}
+.tippy-box[data-theme~='biotutor'][data-placement^='top'] > .tippy-arrow::after {
+  border-width: 6px 6px 0;
   border-top-color: #ffffff;
+  bottom: -4px;
+  left: 2px;
 }
