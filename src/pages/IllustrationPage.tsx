@@ -1,18 +1,11 @@
 import { useParams } from 'react-router-dom'
 import { useState, useRef, useLayoutEffect, useCallback } from 'react'
-import Tippy from '@tippyjs/react'
+import { HitTarget } from '../components/HitTarget'
 import styles from './IllustrationPage.module.css'
 
 type BoundingBox = { x: number; y: number; width: number; height: number }
 type Item = { label: string; bbox: BoundingBox }
 type Description = { description: string; source: { title: string; url: string } }
-
-function safeUrl(url: string): string | undefined {
-  try {
-    const p = new URL(url)
-    return p.protocol === 'https:' || p.protocol === 'http:' ? url : undefined
-  } catch { return undefined }
-}
 
 function formatAudience(slug: string) {
   return slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
@@ -36,7 +29,6 @@ export function IllustrationPage() {
     return () => window.removeEventListener('resize', updateRect)
   }, [updateRect])
 
-  // Fetch available audiences on mount
   useLayoutEffect(() => {
     if (!name) return
     setAudiences([])
@@ -53,7 +45,6 @@ export function IllustrationPage() {
       .catch(() => {})
   }, [name])
 
-  // Load data when audience is selected
   useLayoutEffect(() => {
     if (!name || !audience) return
     fetch(`/api/load?name=${encodeURIComponent(name)}&audience=${encodeURIComponent(audience)}`)
@@ -95,51 +86,19 @@ export function IllustrationPage() {
           onLoad={updateRect}
         />
         {rect && items.map((item, i) => {
-          const { x, y, width, height } = item.bbox
           const freshImg = imgRef.current!.getBoundingClientRect()
           const containerRect = imgRef.current!.parentElement!.getBoundingClientRect()
-          const ox = freshImg.left - containerRect.left
-          const oy = freshImg.top - containerRect.top
-          const desc = descriptions[item.label]
           return (
-            <Tippy
+            <HitTarget
               key={i}
-              content={
-                <div className={styles.tooltipContent}>
-                  <div className={styles.tooltipHeader}>{item.label}</div>
-                  {desc ? (
-                    <div className={styles.tooltipBody}>
-                      {desc.description}
-                      {/medical/i.test(audience) && safeUrl(desc.source?.url) && (
-                        <a className={styles.citationRef} href={safeUrl(desc.source.url)} target="_blank" rel="noreferrer">
-                          [{i + 1}]
-                        </a>
-                      )}
-                    </div>
-                  ) : (
-                    <div className={styles.tooltipEmpty}>{item.label}</div>
-                  )}
-                </div>
-              }
-              placement="right"
-              popperOptions={{ modifiers: [{ name: 'flip', options: { fallbackPlacements: ['left', 'bottom', 'top'] } }] }}
-              animation="shift-away"
-              interactive={true}
-              arrow={true}
-              theme="biotutor"
-              trigger="click"
-              hideOnClick={true}
-            >
-              <div
-                className={styles.hitTarget}
-                style={{
-                  left: ox + x * freshImg.width,
-                  top: oy + y * freshImg.height,
-                  width: width * freshImg.width,
-                  height: height * freshImg.height,
-                }}
-              />
-            </Tippy>
+              label={item.label}
+              bbox={item.bbox}
+              index={i}
+              imgRect={freshImg}
+              containerRect={containerRect}
+              description={descriptions[item.label]}
+              audience={audience}
+            />
           )
         })}
       </div>

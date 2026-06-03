@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { showToast } from '../components/Toast'
 import { useState, useRef, useLayoutEffect, useCallback, useEffect } from 'react'
-import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/animations/shift-away.css'
+import { HitTarget } from '../components/HitTarget'
 import styles from './EditPage.module.css'
 
 type BoundingBox = { x: number; y: number; width: number; height: number }
@@ -445,70 +445,39 @@ export function EditPage() {
               >⬚ Draw</button>
             </div>
 
-            {items.map((item, i) => {
-              const { x, y, width, height } = item.bbox
-              const pxLeft = ox + x * freshImg.width
-              const pxTop = oy + y * freshImg.height
-              const pxW = width * freshImg.width
-              const pxH = height * freshImg.height
-              const desc = descriptions[item.label]
-              return (
-                <Tippy
-                  key={i}
-                  content={
-                    <div className={styles.tooltipContent}>
-                      <div className={styles.tooltipHeader}>{item.label}</div>
-                      {desc ? (
-                        <div className={styles.tooltipBody}>
-                          {desc.description}
-                          {/medical/i.test(audience) && safeUrl(desc.source?.url) && (
-                            <a className={styles.citationRef} href={safeUrl(desc.source.url)} target="_blank" rel="noreferrer">
-                              [{i + 1}]
-                            </a>
-                          )}
-                        </div>
-                      ) : (
-                        <div className={styles.tooltipEmpty}>No description yet</div>
-                      )}
-                    </div>
-                  }
-                  placement="right"
-                  popperOptions={{ modifiers: [{ name: 'flip', options: { fallbackPlacements: ['left', 'bottom', 'top'] } }] }}
-                  animation="shift-away"
-                  interactive={true}
-                  arrow={true}
-                  theme="biotutor"
-                  trigger="click"
-                  disabled={mode === 'draw'}
-                  hideOnClick={true}
-                >
-                  <div
+            {items.map((item, i) => (
+              <HitTarget
+                key={i}
+                label={item.label}
+                bbox={item.bbox}
+                index={i}
+                imgRect={freshImg}
+                containerRect={containerRect}
+                description={descriptions[item.label]}
+                audience={audience}
+                targetClassName={mode === 'select' ? styles.selectable : ''}
+                tippyDisabled={mode === 'draw'}
+                onMouseDown={(e) => handleItemMouseDown(e, i)}
+              >
+                <span className={styles.bboxLabel}>{item.label}</span>
+                {mode === 'select' && <>
+                  {HANDLES.map(h => (
+                    <div
+                      key={h}
+                      data-nodraw
+                      className={`${styles.handle} ${styles[`handle-${h}`]}`}
+                      onMouseDown={(e) => handleHandleMouseDown(e, i, h)}
+                    />
+                  ))}
+                  <button
                     data-nodraw
-                    className={`${styles.hitTarget} ${mode === 'select' ? styles.selectable : ''}`}
-                    style={{ left: pxLeft, top: pxTop, width: pxW, height: pxH }}
-                    onMouseDown={(e) => handleItemMouseDown(e, i)}
-                  >
-                    <span className={styles.bboxLabel}>{item.label}</span>
-                    {mode === 'select' && <>
-                      {HANDLES.map(h => (
-                        <div
-                          key={h}
-                          data-nodraw
-                          className={`${styles.handle} ${styles[`handle-${h}`]}`}
-                          onMouseDown={(e) => handleHandleMouseDown(e, i, h)}
-                        />
-                      ))}
-                      <button
-                        data-nodraw
-                        className={styles.deleteBtn}
-                        onClick={(e) => { e.stopPropagation(); setItems(prev => prev.filter((_, j) => j !== i)) }}
-                        title="Delete"
-                      >×</button>
-                    </>}
-                  </div>
-                </Tippy>
-              )
-            })}
+                    className={styles.deleteBtn}
+                    onClick={(e) => { e.stopPropagation(); setItems(prev => prev.filter((_, j) => j !== i)) }}
+                    title="Delete"
+                  >×</button>
+                </>}
+              </HitTarget>
+            ))}
 
             {/* Ghost box while drawing */}
             {drawing && (
