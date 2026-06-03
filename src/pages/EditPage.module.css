@@ -21,21 +21,137 @@
   display: block;
 }
 
+.imageContainer.drawMode {
+  cursor: crosshair;
+}
+
 .hitTarget {
   position: absolute;
   border: 1.5px solid #1C6CF2;
   border-radius: 4px;
-  cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.hitTarget:hover {
-  background: rgba(28, 108, 242, 0.15);
-  border-color: rgba(28, 108, 242, 0.8);
+.hitTarget.selectable {
+  cursor: move;
 }
 
-.hitTarget:active {
-  background: rgba(28, 108, 242, 0.25);
+.hitTarget.selectable:hover {
+  background: rgba(28, 108, 242, 0.1);
+}
+
+.hitTarget.selectable:hover .handle,
+.hitTarget.selectable:hover .deleteBtn {
+  opacity: 1;
+}
+
+/* Resize handles */
+.handle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border: 1.5px solid #1C6CF2;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 2;
+}
+
+.handle-nw { top: -5px; left: -5px; cursor: nw-resize; }
+.handle-n  { top: -5px; left: calc(50% - 4px); cursor: n-resize; }
+.handle-ne { top: -5px; right: -5px; cursor: ne-resize; }
+.handle-e  { top: calc(50% - 4px); right: -5px; cursor: e-resize; }
+.handle-se { bottom: -5px; right: -5px; cursor: se-resize; }
+.handle-s  { bottom: -5px; left: calc(50% - 4px); cursor: s-resize; }
+.handle-sw { bottom: -5px; left: -5px; cursor: sw-resize; }
+.handle-w  { top: calc(50% - 4px); left: -5px; cursor: w-resize; }
+
+/* Delete button */
+.deleteBtn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 18px;
+  height: 18px;
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.1s;
+  z-index: 3;
+  padding: 0;
+}
+
+.deleteBtn:hover {
+  background: #dc2626;
+}
+
+/* Ghost box while drawing */
+.ghostBox {
+  position: absolute;
+  border: 1.5px dashed #1C6CF2;
+  border-radius: 4px;
+  background: rgba(28, 108, 242, 0.08);
+  pointer-events: none;
+}
+
+/* Label input overlay */
+.labelPrompt {
+  position: absolute;
+  z-index: 10;
+}
+
+.labelInput {
+  background: #1a2035;
+  border: 1px solid rgba(28, 108, 242, 0.6);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  font-family: inherit;
+  padding: 4px 8px;
+  outline: none;
+  width: 160px;
+}
+
+.labelInput::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+/* Mode toggle */
+.modeToggle {
+  display: flex;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.modeBtn {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #fff;
+  color: #6b7280;
+  border: none;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.modeBtn + .modeBtn {
+  border-left: 1px solid #d1d5db;
+}
+
+.modeBtnActive {
+  background: #1C6CF2;
+  color: #fff;
 }
 
 .bboxLabel {
