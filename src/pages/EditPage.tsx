@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import { showToast } from '../components/Toast'
 import { useState, useRef, useLayoutEffect, useCallback, useEffect } from 'react'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
@@ -357,9 +358,9 @@ export function EditPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ image, model }),
       }))
-      .then(r => r.json())
+      .then(r => { if (!r.ok) throw new Error(`${r.status}`); return r.json() })
       .then(data => setSummary(data.summary ?? ''))
-      .catch(() => {})
+      .catch((e) => showToast(`Summarize error: ${e}`))
       .finally(() => setSummarizing(false))
   }, [name])
 
@@ -393,9 +394,12 @@ export function EditPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
+      if (!response.ok) { showToast(`Identify failed (${response.status})`); return }
       const data = await response.json()
       setItems(data.items ?? [])
       updateRect()
+    } catch (e) {
+      showToast(`Identify error: ${e}`)
     } finally {
       setLoading(false)
     }
@@ -636,10 +640,13 @@ export function EditPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ items, audience, prompt: describePrompt, model, summary }),
               })
+              if (!r.ok) { showToast(`Describe failed (${r.status})`); return }
               const data = await r.json()
               const map: Record<string, Description> = {}
               for (const d of data.descriptions ?? []) map[d.label] = { description: d.description, source: d.source ?? { title: '', url: '' } }
               setDescriptions(map)
+            } catch (e) {
+              showToast(`Describe error: ${e}`)
             } finally {
               setDescribing(false)
             }
@@ -684,11 +691,17 @@ export function EditPage() {
                 const d = descriptions[item.label]
                 return { label: item.label, ...(d ?? { description: '', source: { title: '', url: '' } }) }
               })
-              await fetch('/api/save', {
+              const r = await fetch('/api/save', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, audience, items, descriptions: descList }),
               })
+              if (!r.ok) {
+                const body = await r.json().catch(() => ({}))
+                showToast(`Publish failed (${r.status})${body.error ? `\n${body.error}` : ''}`)
+              }
+            } catch (e) {
+              showToast(`Publish error: ${e}`)
             } finally {
               setPublishing(false)
             }
