@@ -362,7 +362,7 @@ export function EditPage() {
       .then(data => setSummary(data.summary ?? ''))
       .catch((e) => showToast(`Summarize error: ${e}`))
       .finally(() => setSummarizing(false))
-  }, [name])
+  }, [name, model])
 
   async function identify() {
     if (!name) return
