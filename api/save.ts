@@ -10,16 +10,21 @@ function readBody(req: IncomingMessage): Promise<string> {
   })
 }
 
+function slugify(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+}
+
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
   if (req.method !== 'POST') { res.writeHead(405); res.end('Method not allowed'); return }
 
-  const { name, items, descriptions } = JSON.parse(await readBody(req)) as Record<string, any>
+  const { name, audience, items, descriptions } = JSON.parse(await readBody(req)) as Record<string, any>
   if (typeof name !== 'string' || !/^[a-z0-9_-]{1,64}$/.test(name)) { res.writeHead(400); res.end('Invalid name'); return }
 
-  const payload = JSON.stringify({ items, descriptions }, null, 2)
+  const audienceSlug = audience ? slugify(String(audience)) : 'default'
+  const payload = JSON.stringify({ audience, items, descriptions }, null, 2)
 
   try {
-    const { url } = await put(`illustrations/${name}.data.json`, payload, {
+    const { url } = await put(`illustrations/${name}.${audienceSlug}.data.json`, payload, {
       access: 'private',
       contentType: 'application/json',
       addRandomSuffix: false,

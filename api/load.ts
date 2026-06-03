@@ -1,4 +1,4 @@
-import { head } from '@vercel/blob'
+import { head, list } from '@vercel/blob'
 import type { IncomingMessage, ServerResponse } from 'http'
 
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
@@ -6,16 +6,30 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
   const url = new URL(req.url ?? '', `http://localhost`)
   const name = url.searchParams.get('name')
+  const audience = url.searchParams.get('audience')
+
   if (typeof name !== 'string' || !/^[a-z0-9_-]{1,64}$/.test(name)) { res.writeHead(400); res.end('Invalid name'); return }
 
+  res.setHeader('Content-Type', 'application/json')
+
   try {
-    const blob = await head(`illustrations/${name}.data.json`)
+    if (!audience) {
+      // List available audiences for this illustration
+      const { blobs } = await list({ prefix: `illustrations/${name}.` })
+      const audiences = blobs
+        .map(b => b.pathname.replace(`illustrations/${name}.`, '').replace('.data.json', ''))
+        .filter(s => s.endsWith('') && !s.includes('.'))  // only direct slugs
+      res.end(JSON.stringify({ audiences }))
+      return
+    }
+
+    const audienceSlug = audience.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    const blob = await head(`illustrations/${name}.${audienceSlug}.data.json`)
     const r = await fetch(blob.url, {
       headers: { Authorization: `Bearer ${process.env.BLOB_READ_WRITE_TOKEN}` },
     })
     if (!r.ok) throw new Error('fetch failed')
     const data = await r.json()
-    res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify(data))
   } catch {
     res.writeHead(404)

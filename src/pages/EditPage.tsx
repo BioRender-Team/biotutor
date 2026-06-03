@@ -687,7 +687,7 @@ export function EditPage() {
               await fetch('/api/save', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, items, descriptions: descList }),
+                body: JSON.stringify({ name, audience, items, descriptions: descList }),
               })
             } finally {
               setPublishing(false)

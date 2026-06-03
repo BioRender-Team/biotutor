@@ -14,8 +14,14 @@ function safeUrl(url: string): string | undefined {
   } catch { return undefined }
 }
 
+function formatAudience(slug: string) {
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+}
+
 export function IllustrationPage() {
   const { name } = useParams<{ name: string }>()
+  const [audiences, setAudiences] = useState<string[]>([])
+  const [audience, setAudience] = useState('')
   const [items, setItems] = useState<Item[]>([])
   const [descriptions, setDescriptions] = useState<Record<string, Description>>({})
   const imgRef = useRef<HTMLImageElement>(null)
@@ -30,26 +36,56 @@ export function IllustrationPage() {
     return () => window.removeEventListener('resize', updateRect)
   }, [updateRect])
 
+  // Fetch available audiences on mount
   useLayoutEffect(() => {
     if (!name) return
+    setAudiences([])
+    setAudience('')
+    setItems([])
+    setDescriptions({})
     fetch(`/api/load?name=${encodeURIComponent(name)}`)
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data?.audiences?.length) return
+        setAudiences(data.audiences)
+        setAudience(data.audiences[0])
+      })
+      .catch(() => {})
+  }, [name])
+
+  // Load data when audience is selected
+  useLayoutEffect(() => {
+    if (!name || !audience) return
+    fetch(`/api/load?name=${encodeURIComponent(name)}&audience=${encodeURIComponent(audience)}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
         if (!data) return
         setItems(data.items ?? [])
         const map: Record<string, Description> = {}
         for (const d of data.descriptions ?? []) map[d.label] = { description: d.description, source: d.source ?? { title: '', url: '' } }
         setDescriptions(map)
-        // Ensure rect is current after data arrives (image may already be loaded)
         if (imgRef.current) setImgRect(imgRef.current.getBoundingClientRect())
       })
       .catch(() => {})
-  }, [name])
+  }, [name, audience])
 
   const rect = imgRect
 
   return (
     <div className={styles.page}>
+      {audiences.length > 1 && (
+        <div className={styles.audiencePicker}>
+          {audiences.map(a => (
+            <button
+              key={a}
+              className={`${styles.audienceBtn} ${audience === a ? styles.audienceBtnActive : ''}`}
+              onClick={() => setAudience(a)}
+            >
+              {formatAudience(a)}
+            </button>
+          ))}
+        </div>
+      )}
       <div className={styles.imageContainer}>
         <img
           ref={imgRef}
@@ -60,7 +96,10 @@ export function IllustrationPage() {
         />
         {rect && items.map((item, i) => {
           const { x, y, width, height } = item.bbox
+          const freshImg = imgRef.current!.getBoundingClientRect()
           const containerRect = imgRef.current!.parentElement!.getBoundingClientRect()
+          const ox = freshImg.left - containerRect.left
+          const oy = freshImg.top - containerRect.top
           const desc = descriptions[item.label]
           return (
             <Tippy
@@ -94,10 +133,10 @@ export function IllustrationPage() {
               <div
                 className={styles.hitTarget}
                 style={{
-                  left: rect.left - containerRect.left + x * rect.width,
-                  top: rect.top - containerRect.top + y * rect.height,
-                  width: width * rect.width,
-                  height: height * rect.height,
+                  left: ox + x * freshImg.width,
+                  top: oy + y * freshImg.height,
+                  width: width * freshImg.width,
+                  height: height * freshImg.height,
                 }}
               />
             </Tippy>
