@@ -48,16 +48,17 @@ function readBody(req: IncomingMessage): Promise<string> {
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
   if (req.method !== 'POST') { res.writeHead(405); res.end('Method not allowed'); return }
 
-  const { items, audience, prompt, model } = JSON.parse(await readBody(req)) as Record<string, any>
+  const { items, audience, prompt, model, summary } = JSON.parse(await readBody(req)) as Record<string, any>
   const resolvedModel = typeof model === 'string' ? model : 'anthropic/claude-sonnet-4.5'
 
+  const figureContext = summary ? `\n\nFigure context: ${summary}` : ''
   const objectList = items.map((it: any) => it.label).join(', ')
   const userMessage = `Audience: ${audience || 'High School'}\nObjects identified in figure: ${objectList}`
 
   const { object } = await generateObject({
     model: resolvedModel,
     schema,
-    system: prompt,
+    system: prompt + figureContext,
     messages: [{ role: 'user', content: userMessage }],
   })
 

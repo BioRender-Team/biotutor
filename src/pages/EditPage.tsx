@@ -211,6 +211,8 @@ export function EditPage() {
   const [descriptions, setDescriptions] = useState<Record<string, Description>>({})
   const [describing, setDescribing] = useState(false)
   const [publishing, setPublishing] = useState(false)
+  const [summary, setSummary] = useState('')
+  const [summarizing, setSummarizing] = useState(false)
   const [mode, setMode] = useState<Mode>('select')
   const [drawing, setDrawing] = useState<BoundingBox | null>(null)
   const [pendingBox, setPendingBox] = useState<BoundingBox | null>(null)
@@ -344,6 +346,28 @@ export function EditPage() {
     window.addEventListener('resize', updateRect)
     return () => window.removeEventListener('resize', updateRect)
   }, [updateRect])
+
+  useLayoutEffect(() => {
+    if (!name) return
+    setSummarizing(true)
+    setSummary('')
+    fetch(`/illustrations/${name}.png`)
+      .then(r => r.blob())
+      .then(blob => new Promise<string>((resolve) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve((reader.result as string).split(',')[1])
+        reader.readAsDataURL(blob)
+      }))
+      .then(image => fetch('/api/summarize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image, model }),
+      }))
+      .then(r => r.json())
+      .then(data => setSummary(data.summary ?? ''))
+      .catch(() => {})
+      .finally(() => setSummarizing(false))
+  }, [name])
 
   async function identify() {
     if (!name) return
@@ -568,6 +592,18 @@ export function EditPage() {
 
         <div className={styles.divider} />
 
+        <div className={styles.summaryLabel}>
+          {summarizing ? 'Summarizing figure…' : 'Figure summary'}
+        </div>
+        <textarea
+          className={styles.promptInput}
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
+          rows={3}
+          placeholder={summarizing ? 'Generating…' : 'Figure summary will appear here…'}
+          disabled={summarizing}
+        />
+
         <textarea
           className={styles.promptInput}
           value={describePrompt}
@@ -593,7 +629,7 @@ export function EditPage() {
               const r = await fetch('/api/describe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ items, audience, prompt: describePrompt, model }),
+                body: JSON.stringify({ items, audience, prompt: describePrompt, model, summary }),
               })
               const data = await r.json()
               const map: Record<string, Description> = {}
