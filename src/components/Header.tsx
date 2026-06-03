@@ -26,7 +26,9 @@ export function Header() {
 
   return (
     <header className={styles.header}>
-      <Link to="/" className={styles.brand}>BioTutor</Link>
+      <Link to="/" className={styles.brand}>
+        <img src="/biotutor-logo.png" alt="BioTutor" className={styles.logo} />
+      </Link>
       <div className={styles.right}>
         <select
           className={styles.nav}

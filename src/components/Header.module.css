@@ -10,11 +10,16 @@
 }
 
 .brand {
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 500;
   text-decoration: none;
   flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .right {
