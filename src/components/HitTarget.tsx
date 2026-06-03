@@ -1,8 +1,10 @@
+import { useState, useRef } from 'react'
 import Tippy from '@tippyjs/react'
 import styles from './HitTarget.module.css'
 
 type BoundingBox = { x: number; y: number; width: number; height: number }
 type Description = { description: string; source: { title: string; url: string } }
+type Sparkle = { id: number; x: number; y: number; size: number }
 
 function safeUrl(url: string): string | undefined {
   try {
@@ -50,6 +52,22 @@ export function HitTarget({
   const oy = imgRect.top - containerRect.top
   const showCitation = /medical/i.test(audience) && description && safeUrl(description.source?.url)
 
+  const [sparkles, setSparkles] = useState<Sparkle[]>([])
+  const lastSparkleRef = useRef(0)
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const now = Date.now()
+    if (now - lastSparkleRef.current < 60) return
+    lastSparkleRef.current = now
+    const rect = e.currentTarget.getBoundingClientRect()
+    const sx = e.clientX - rect.left
+    const sy = e.clientY - rect.top
+    const id = now + Math.random()
+    const size = 10 + Math.random() * 8
+    setSparkles(prev => [...prev.slice(-6), { id, x: sx, y: sy, size }])
+    setTimeout(() => setSparkles(prev => prev.filter(s => s.id !== id)), 700)
+  }
+
   return (
     <Tippy
       content={
@@ -94,7 +112,15 @@ export function HitTarget({
           height: height * imgRect.height,
         }}
         onMouseDown={onMouseDown}
+        onMouseMove={bordered ? undefined : handleMouseMove}
       >
+        {!bordered && sparkles.map(s => (
+          <span
+            key={s.id}
+            className={styles.sparkle}
+            style={{ left: s.x, top: s.y, fontSize: s.size }}
+          >✦</span>
+        ))}
         {children}
       </div>
     </Tippy>

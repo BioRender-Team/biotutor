@@ -6,12 +6,32 @@
 }
 
 .hitTargetBordered {
-  border-color: #1C6CF2;
+  border-color: var(--color-bright-blue-500);
+}
+
+.hitTargetHoverable {
+  border-color: transparent;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .hitTargetHoverable:hover {
-  background: rgba(28, 108, 242, 0.12);
-  border-color: rgba(28, 108, 242, 0.5);
+  background: rgba(233, 240, 248, 0.2);
+  border-color: transparent;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--color-bright-blue-400);
+  pointer-events: none;
+  line-height: 1;
+  animation: sparkleAnim 0.7s ease-out forwards;
+}
+
+@keyframes sparkleAnim {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(0.4); }
+  40%  { opacity: 1; transform: translate(-50%, calc(-50% - 8px)) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, calc(-50% - 18px)) scale(0.3); }
 }
 
 .tooltipContent {

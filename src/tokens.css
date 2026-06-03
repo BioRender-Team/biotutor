@@ -1,0 +1,55 @@
+:root {
+  /* Blue */
+  --color-blue-100: #E9F0F8;
+  --color-blue-200: #C8DBED;
+  --color-blue-300: #92B7DB;
+  --color-blue-400: #5D94CA;
+  --color-blue-500: #2571B7;
+  --color-blue-600: #085299;
+  --color-blue-700: #003F7A;
+
+  /* BrightBlue */
+  --color-bright-blue-100: #E7F4FF;
+  --color-bright-blue-200: #B6DBFF;
+  --color-bright-blue-300: #69B6FF;
+  --color-bright-blue-400: #2B98FF;
+  --color-bright-blue-500: #198FFF;
+  --color-bright-blue-600: #0073DF;
+  --color-bright-blue-700: #0061BE;
+
+  /* Green */
+  --color-green-100: #E0FBE9;
+  --color-green-200: #C7EDD3;
+  --color-green-300: #8DD9A7;
+  --color-green-400: #55C77C;
+  --color-green-500: #1BB351;
+  --color-green-600: #12A242;
+  --color-green-700: #128539;
+
+  /* Gray */
+  --color-gray-100: #FFFFFF;
+  --color-gray-200: #F6F7FA;
+  --color-gray-300: #E4E8EE;
+  --color-gray-400: #CED5DE;
+  --color-gray-500: #B5BDC7;
+  --color-gray-600: #818D9C;
+  --color-gray-700: #697380;
+  --color-gray-800: #4F5763;
+  --color-gray-900: #383F47;
+  --color-gray-1000: #293039;
+
+  /* Red */
+  --color-red-100: #FFF6F5;
+  --color-red-200: #FDD0D0;
+  --color-red-300: #F9A0A0;
+  --color-red-400: #F77372;
+  --color-red-500: #F54243;
+  --color-red-600: #DB3939;
+  --color-red-700: #BA2727;
+
+  /* Semantic — products */
+  --color-product-illustration: var(--color-blue-500);
+  --color-product-presentation: var(--color-blue-500); /* yellow.600 — add when yellow palette available */
+  --color-product-poster: var(--color-blue-500);       /* purple.600 — add when purple palette available */
+  --color-product-graph: var(--color-blue-500);        /* teal.500 — add when teal palette available */
+}
