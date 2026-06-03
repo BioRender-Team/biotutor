@@ -23,6 +23,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
       access: 'private',
       contentType: 'application/json',
       addRandomSuffix: false,
+      allowOverwrite: true,
     })
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify({ url }))
