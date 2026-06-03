@@ -347,19 +347,21 @@ export function EditPage() {
   }, [model]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const summarize = useCallback(() => {
-    if (!name || !imgRef.current) return
+    if (!name) return
     setSummarizing(true)
     setSummary('')
-    const canvas = document.createElement('canvas')
-    canvas.width = imgRef.current.naturalWidth
-    canvas.height = imgRef.current.naturalHeight
-    canvas.getContext('2d')!.drawImage(imgRef.current, 0, 0)
-    const base64 = canvas.toDataURL('image/png').split(',')[1]
-    fetch('/api/summarize', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ image: base64, model }),
-    })
+    fetch(`/illustrations/${name}.png`)
+      .then(r => r.blob())
+      .then(blob => new Promise<string>((resolve) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve((reader.result as string).split(',')[1])
+        reader.readAsDataURL(blob)
+      }))
+      .then(base64 => fetch('/api/summarize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: base64, model }),
+      }))
       .then(r => { if (!r.ok) throw new Error(`${r.status}`); return r.json() })
       .then(data => setSummary(data.summary ?? ''))
       .catch((e) => showToast(`Summarize error: ${e}`))
