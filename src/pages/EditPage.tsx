@@ -428,16 +428,17 @@ export function EditPage() {
           draggable={false}
         />
         {rect && (() => {
+          const freshImg = imgRef.current!.getBoundingClientRect()
           const containerRect = imgRef.current!.parentElement!.getBoundingClientRect()
-          const ox = rect.left - containerRect.left
-          const oy = rect.top - containerRect.top
+          const ox = freshImg.left - containerRect.left
+          const oy = freshImg.top - containerRect.top
           return <>
             {items.map((item, i) => {
               const { x, y, width, height } = item.bbox
-              const pxLeft = ox + x * rect.width
-              const pxTop = oy + y * rect.height
-              const pxW = width * rect.width
-              const pxH = height * rect.height
+              const pxLeft = ox + x * freshImg.width
+              const pxTop = oy + y * freshImg.height
+              const pxW = width * freshImg.width
+              const pxH = height * freshImg.height
               const desc = descriptions[item.label]
               return (
                 <Tippy
@@ -501,10 +502,10 @@ export function EditPage() {
               <div
                 className={styles.ghostBox}
                 style={{
-                  left: ox + drawing.x * rect.width,
-                  top: oy + drawing.y * rect.height,
-                  width: drawing.width * rect.width,
-                  height: drawing.height * rect.height,
+                  left: ox + drawing.x * freshImg.width,
+                  top: oy + drawing.y * freshImg.height,
+                  width: drawing.width * freshImg.width,
+                  height: drawing.height * freshImg.height,
                 }}
               />
             )}
@@ -515,15 +516,15 @@ export function EditPage() {
                 data-nodraw
                 className={styles.labelPrompt}
                 style={{
-                  left: ox + pendingBox.x * rect.width,
-                  top: oy + pendingBox.y * rect.height - 34,
+                  left: ox + pendingBox.x * freshImg.width,
+                  top: oy + pendingBox.y * freshImg.height - 34,
                 }}
               >
                 <div className={styles.ghostBox} style={{
                   position: 'absolute',
                   left: 0, top: 34,
-                  width: pendingBox.width * rect.width,
-                  height: pendingBox.height * rect.height,
+                  width: pendingBox.width * freshImg.width,
+                  height: pendingBox.height * freshImg.height,
                 }} />
                 <input
                   className={styles.labelInput}
