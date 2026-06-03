@@ -8,8 +8,8 @@ const illustrations = Object.keys(modules).map((path) =>
 
 const LABELS: Record<string, string> = {
   'car-t':   'CAR-T',
-  'water':   'Water 2',
-  'water2':  'Water (orig)',
+  'water':   'Water (orig)',
+  'water2':  'Water 2',
   'water3':  'Water 3',
   'soybean': 'Soybean',
   'tomato':  'Tomato',
