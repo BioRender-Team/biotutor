@@ -1,6 +1,12 @@
 # BioTutor
 
-An internal BioRender tool for AI-powered biology education. Authors use BioRender scientific illustrations to identify key steps, generate audience-appropriate descriptions with citations, and publish interactive figures for students to explore.
+BioTutor is an AI-powered biology education tool that turns BioRender scientific illustrations into interactive learning experiences. Authors use an edit mode to identify key figures, generate audience-targeted descriptions, and publish — students then explore the illustration by clicking regions to reveal explanations tailored to their level.
+
+### Edit mode
+![Edit mode](docs/edit-mode.png)
+
+### Viewer mode
+![Viewer mode](docs/view-mode.png)
 
 ## Local Development
 
