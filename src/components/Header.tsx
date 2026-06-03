@@ -38,8 +38,7 @@ export function Header() {
             <option key={name} value={name}>{formatLabel(name)}</option>
           ))}
         </select>
-        <Link to="/team" className={styles.teamLink}>Team</Link>
-        {match && (
+{match && (
           <Link to={`/${match.params.name}/edit`} className={styles.editButton}>
             Edit
           </Link>
