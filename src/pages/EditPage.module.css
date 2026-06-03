@@ -405,12 +405,12 @@ details[open] .accordionSummary::before {
   font-weight: 600;
   vertical-align: super;
   line-height: 0;
-  color: rgba(28, 108, 242, 0.85);
+  color: #93c5fd;
   text-decoration: none;
   cursor: pointer;
 }
 
 .citationRef:hover {
-  color: #1C6CF2;
+  color: #bfdbfe;
   text-decoration: underline;
 }

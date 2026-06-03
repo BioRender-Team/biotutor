@@ -461,7 +461,7 @@ export function EditPage() {
                       {desc ? (
                         <div className={styles.tooltipBody}>
                           {desc.description}
-                          {safeUrl(desc.source?.url) && (
+                          {/medical/i.test(audience) && safeUrl(desc.source?.url) && (
                             <a className={styles.citationRef} href={safeUrl(desc.source.url)} target="_blank" rel="noreferrer">
                               [{i + 1}]
                             </a>
