@@ -342,22 +342,24 @@ export function EditPage() {
     return () => window.removeEventListener('resize', updateRect)
   }, [updateRect])
 
-  useLayoutEffect(() => {
-    if (!name) return
+  useEffect(() => {
+    if (imgRef.current?.complete) summarize()
+  }, [model]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const summarize = useCallback(() => {
+    if (!name || !imgRef.current) return
     setSummarizing(true)
     setSummary('')
-    fetch(`/illustrations/${name}.png`)
-      .then(r => r.blob())
-      .then(blob => new Promise<string>((resolve) => {
-        const reader = new FileReader()
-        reader.onload = () => resolve((reader.result as string).split(',')[1])
-        reader.readAsDataURL(blob)
-      }))
-      .then(image => fetch('/api/summarize', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image, model }),
-      }))
+    const canvas = document.createElement('canvas')
+    canvas.width = imgRef.current.naturalWidth
+    canvas.height = imgRef.current.naturalHeight
+    canvas.getContext('2d')!.drawImage(imgRef.current, 0, 0)
+    const base64 = canvas.toDataURL('image/png').split(',')[1]
+    fetch('/api/summarize', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: base64, model }),
+    })
       .then(r => { if (!r.ok) throw new Error(`${r.status}`); return r.json() })
       .then(data => setSummary(data.summary ?? ''))
       .catch((e) => showToast(`Summarize error: ${e}`))
@@ -418,7 +420,7 @@ export function EditPage() {
           src={`/illustrations/${name}.png`}
           alt={name}
           className={styles.image}
-          onLoad={updateRect}
+          onLoad={() => { updateRect(); summarize() }}
           draggable={false}
         />
         {rect && (() => {
