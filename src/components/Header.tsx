@@ -1,24 +1,11 @@
 import { Link, useMatch, useNavigate } from 'react-router-dom'
 import styles from './Header.module.css'
 
-const modules = import.meta.glob('/public/illustrations/*.png', { eager: true })
-const illustrations = Object.keys(modules).map((path) =>
-  path.replace('/public/illustrations/', '').replace('.png', ''),
-)
-
-const LABELS: Record<string, string> = {
-  'car-t':   'CAR-T',
-  'water':   'Water (orig)',
-  'water2':  'Water 2',
-  'water3':  'Water 3',
-  'soybean': 'Soybean',
-  'tomato':  'Tomato',
-}
-
-function formatLabel(name: string) {
-  if (LABELS[name]) return LABELS[name]
-  return name.charAt(0).toUpperCase() + name.slice(1)
-}
+const DEMO_ILLUSTRATIONS: { name: string; label: string }[] = [
+  { name: 'hiv-cycle', label: 'HIV Cycle' },
+  { name: 'car-t',     label: 'CAR T' },
+  { name: 'water3',    label: 'Water Cycle' },
+]
 
 export function Header() {
   const match = useMatch('/:name')
@@ -36,8 +23,8 @@ export function Header() {
           onChange={(e) => { if (e.target.value) navigate(`/${e.target.value}`) }}
         >
           <option value="">Illustrations</option>
-          {illustrations.map((name) => (
-            <option key={name} value={name}>{formatLabel(name)}</option>
+          {DEMO_ILLUSTRATIONS.map(({ name, label }) => (
+            <option key={name} value={name}>{label}</option>
           ))}
         </select>
 {match && (
