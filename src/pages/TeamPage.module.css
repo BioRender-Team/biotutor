@@ -1,0 +1,46 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 32px;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+  letter-spacing: 0.01em;
+}
+
+.row {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.12) rotate(var(--tilt));
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}

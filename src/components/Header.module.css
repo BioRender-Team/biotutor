@@ -38,6 +38,18 @@
   color: #ffffff;
 }
 
+.teamLink {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.teamLink:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .editButton {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.55);
