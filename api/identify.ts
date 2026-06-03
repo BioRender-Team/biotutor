@@ -27,7 +27,7 @@ function preprocessBioRenderJson(raw: unknown) {
     let curId: string | undefined = id
     let first = true
     while (curId && objects[curId]) {
-      const obj = objects[curId]
+      const obj: any = objects[curId]
       const tx = obj.relativeTransform?.translate?.x ?? 0
       const ty = obj.relativeTransform?.translate?.y ?? 0
       const sx = obj.relativeTransform?.scale?.x ?? 1

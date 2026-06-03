@@ -33,7 +33,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     model: resolvedModel,
     schema,
     system: SYSTEM_PROMPT,
-    messages: [{ role: 'user', content: [{ type: 'image', image, mimeType: 'image/png' }] }],
+    messages: [{ role: 'user', content: [{ type: 'image' as const, image }] }],
   })
 
   res.setHeader('Content-Type', 'application/json')
