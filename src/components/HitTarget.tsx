@@ -19,6 +19,8 @@ interface HitTargetProps {
   containerRect: DOMRect
   description?: Description
   audience?: string
+  /** Show visible blue border (edit page style) */
+  bordered?: boolean
   /** Extra class(es) for the hit target div, e.g. for move/select mode styling */
   targetClassName?: string
   /** Extra children inside the hit target div, e.g. resize handles */
@@ -36,6 +38,7 @@ export function HitTarget({
   containerRect,
   description,
   audience = '',
+  bordered = false,
   targetClassName = '',
   children,
   onMouseDown,
@@ -79,7 +82,11 @@ export function HitTarget({
       <div
         {...rest}
         data-nodraw
-        className={`${styles.hitTarget} ${targetClassName}`}
+        className={[
+          styles.hitTarget,
+          bordered ? styles.hitTargetBordered : styles.hitTargetHoverable,
+          targetClassName,
+        ].filter(Boolean).join(' ')}
         style={{
           left: ox + x * imgRect.width,
           top: oy + y * imgRect.height,

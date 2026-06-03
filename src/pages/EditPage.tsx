@@ -455,6 +455,7 @@ export function EditPage() {
                 containerRect={containerRect}
                 description={descriptions[item.label]}
                 audience={audience}
+                bordered
                 targetClassName={mode === 'select' ? styles.selectable : ''}
                 tippyDisabled={mode === 'draw'}
                 onMouseDown={(e) => handleItemMouseDown(e, i)}

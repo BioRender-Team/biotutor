@@ -1,8 +1,17 @@
 .hitTarget {
   position: absolute;
-  border: 1.5px solid #1C6CF2;
+  border: 1.5px solid transparent;
   border-radius: 4px;
   transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.hitTargetBordered {
+  border-color: #1C6CF2;
+}
+
+.hitTargetHoverable:hover {
+  background: rgba(28, 108, 242, 0.12);
+  border-color: rgba(28, 108, 242, 0.5);
 }
 
 .tooltipContent {
