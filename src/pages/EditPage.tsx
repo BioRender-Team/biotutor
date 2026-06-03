@@ -426,7 +426,6 @@ export function EditPage() {
             <div
               data-nodraw
               className={styles.imageToolbar}
-              style={{ left: ox, top: oy - 40 }}
             >
               <button
                 className={`${styles.toolbarBtn} ${mode === 'select' ? styles.toolbarBtnActive : ''}`}
